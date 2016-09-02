@@ -1,0 +1,160 @@
+  $purpose.
+
+The program LP is intended to be part of a self improving algebra
+system.  LP can solve equations and learn from worked examples.  It can
+only deal with single equations in one unknown, i.e.  no simultaneous
+equations or inequalities.  It has two modes of operation, solve and
+work, where work is the worked example understander.  See entries on
+solve and work for more information on these commands.
+
+
+  $source.  The executable file is /usr/local/bin/lp.  The files used are 
+listed in /usr/bs/lpdir/lp.pl.
+
+  $solve.    As  in  PRESS,  solve(Eqn,X,Ans) is the basic solve procedure that
+solves Eqn for X to get answer Ans.  The predicate solve(Eqn) can also be used,
+in this case the unknown is taken to be x. (The answer is printed  out  at  the
+terminal  so  there  is  no  need  to  have  a variable to hold it, unless more
+processing is required.)
+
+The operators allowed are *, +, -, /, ^ (exponentiation), & and #
+(disjunction).  Any function can be used, the program knows about the six
+trig functions and their inverses, and the logarithmic function, log(X,Y)
+where X is the base, and Y the argument.  An example equation is
+  2*cos(x)^2 - 3*sin(3*x) = 1.
+
+  Typing sredo reruns the last equation.
+
+  $work.    The predicate work(Example,Unknown) is used to give the program a
+worked example.  The example is presented in the form of a list, the  lines  of
+the example being separated by a comma.  Unknown is the unknown in the example.
+
+An example is
+
+  work([sin(x)  +  sin(3*x)  + sin(5*x) = 0, 2*sin(3*x)*cos(x) + sin(3*x) = 0,
+sin(3*x)*(2*cos(x) + 1) = 0,...etc]).
+
+  Some predefined examples can be loaded by typing "wep" to LP. 
+The examples are trig1,trig2, trig3, and demo1.  
+
+
+  work(Example) is a short form of work(Example,x).
+
+  See also entries on give example and generate problem.
+
+  $give_example.  This command (type as "give example") can be used to
+give a worked example at the terminal.  The program prompts for the
+example line by line.  The unknown in the example is always taken to be
+x.   Type a carriage return on a new line to end.
+
+Typing xredo reruns the last worked example input by give example,
+old_redo removes all the methods, schemas etc that have just been
+added, and reruns the example again.
+
+  $generate_problem.  This command (type as "generate problem") is used to 
+test the applicability of program generated schemas.  It should be used after a
+worked example has been processed.  The program generates a choice of
+equations that are similar to the equation solved in the worked
+example.  The user then chooses which of these equations the program
+should attempt to solve.
+
+  $methods.    There  are  3  classes  of  methods:  Top level, program created
+methods, and the lowest level.
+
+  The  top  level  methods  are:     Factorization, Disjunction
+Isolation.
+
+  When the program starts there are no program created methods.
+
+  The lowest level methods are:
+
+  Polynomial Methods, Change of Unknown, Apply New Rule
+Prepare for Factorization , Collection, Function Stripping,
+Attraction, Logarithmic Method  and Nasty Function Method
+
+  $flags.    Some  functions  of  LP depend on the values of flags which can be
+altered by the user.  Flags are used to determine if:
+
+  the worked example should be output (the flag is called  output,  default  is
+  no),
+
+  the program can create new methods, (new methods flag, default yes),
+
+  perform loop checking (loop flag, three values, default yes)
+
+
+  the screen should be cleared (clearscreen flag, default depends on enviroment)
+
+  the program should consider using more than one schema (allschemas flag, 
+  default no)
+
+  In addition, flags are used to enable and disable equation solving methods.
+
+  The basic method of changing the value of flag Flag to yes and no is to  type
+enable Flag or disable Flag respectively.  The three valued loop flag,
+has values yes, no and warn.  To change it to
+yes or no the disable and enable methods can be used, but to change  its  value
+to  warn, type flag(loop,warn).
+
+  With the loop flag set to yes, if the  program  finds  it  has  to  solve  an
+equation  it has already met, it asks the user what to do.  The options include
+continuing, aborting, or entering a break.  A loop is not always caused  by  an
+error, the program might reach an equation by backtracking, and might not be in
+a  loop  at  all.    If  the flag is set to warn, the loop checker prints out a
+warning message, but continues.  With the flag set to no, no loop  checking  is
+performed at all.
+
+  Trying to change a flag to a value it already has produces an error message.
+
+  All methods are originally allowed to be used.  method Method can be disabled
+by typing disable Method and enabled again by typing enable Method.
+
+disable  and  enable can also take a list as argument.
+
+$other_commands.  The prefix operator remove is used to remove things from the
+database.  'remove rules ' removes all new rules.  'remove new methods' and
+'remove schemas' do the obvious things.
+
+  'remove rule(Name') removes the rule of name Name (there should be only one.)
+'remove rules(List)' recurses down list, calling 'remove  rule(Name)'  on  each
+Name  that  is  a  member of List.  (i.e.  it is checklist('remove rule',List).
+
+
+The  prefix  operator show displays to the terminal.  'show schemas' displays
+the schemas, 'show flags' shows the settings of the flags, and  'show  methods'
+shows  which methods are enabled.  'show solve' shows the steps on the solution
+path of the last equation to be solved.  'show new methods' displays a list  of
+the  new  methods  and  their applicable next methods.  'show rules_list' shows
+which rules are associated with the new methods.
+
+  writeout is another prefix operator.  'writeout rules' and 'writeout schemas'
+prompt for a file name and write to that file.  'writeout solve' is like  'show
+solve' but prompts for a file name and writes the trace to that file.
+
+  reset  reinitializes  loop  checkers  and  difficulty  markers,  useful after
+aborting a run.
+
+  change_method_order allows the user to change the order in which methods  are
+tried.  Only the lowest level of methods (see entry on methods) can be changed,
+and all these methods must be specified.  The program prints out the old order.
+
+  As  mentioned  above xredo reruns the previous example given by give example,
+and redo reruns the last equation.  work solution uses the last solve trace  as
+input  for the worked example.  generate problem creates a new equation for the
+program to solve.
+
+
+ $adding_new_rules.  It is often useful to tell the program extra rules
+for a method it has just learned.  For instance, if the program has
+just been given an example showing sums of sines being added, you may want
+the program to know that the same things can be done with the sums of cosines
+(and also the differences of sines and cosines).  The command 'add new rule'
+allows you to do this..  Firstly, it prompts for the name of the method to add
+a rule to.  This can be an old method like Collection or
+a new one.  Generally, the user is asked to provide two lines showing
+the application of the rule, and is then asked to provide the rule in the
+normal way.  Additionally, the user is able to tell the program that rule
+R, currently used by new method NM, can also be used by NM1.
+
+
+

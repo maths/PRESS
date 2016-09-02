@@ -1,0 +1,130 @@
+			TO INSTALL LP
+
+1) Move all the files to an appropriate directory.  From the tape,
+   the files are in three different directories  /usr/bs/lpdir, 
+   /usr/bs/lpdir/misc and /usr/bs/lpdir/test.  All files can be in directory
+   if necessary, but the division into three is more logical.  
+   Make a special note of where you place the file /usr/bs/lpdir/lp.pl
+
+2) Move to the directory that now contains the file lp.pl.
+
+3) Then, edit the file lp.pl as follows:
+
+ a) Change the library_directory/1 clauses to point to your new directories.
+    These are the directories that will be searched during the loading process
+    (and afterwards by lp).  Ensure that
+    the quintus entries are also included.
+
+ b) Change helper_file/1 to indicate where the file lp.hol now is.
+    Similarly change monitor_help/1 (for lp.hlp) and icon_file/1 (for lpicon).
+    These files will probably be in one of the new directories but for
+    various reasons they have to be treated specially.
+
+ c)  Change save_file/1 to indicate where you want the saved lp state to go,
+     if /usr/local/bin/lp is not suitable.
+
+
+4) Staying in the same directory type "prolog < load"  This:
+   a) compiles the file lp.pl
+   b) issues the ss command, which saves the program state and constructs
+      suitable headers
+   c) and exits.
+
+This places the saved state lp into the file specified by save_file/1
+in lp.pl.  The default is /usr/local/bin/lp
+
+
+
+		This is a listing of all the LP files
+
+/usr/bs/lpdir/README
+/usr/bs/lpdir/arithops
+/usr/bs/lpdir/axioms.pl
+/usr/bs/lpdir/bag.pl
+/usr/bs/lpdir/char.pl
+/usr/bs/lpdir/comp.pl
+/usr/bs/lpdir/cond.pl
+/usr/bs/lpdir/confir.pl
+/usr/bs/lpdir/conj.pl
+/usr/bs/lpdir/constr.pl
+/usr/bs/lpdir/demo.pl
+/usr/bs/lpdir/desc.pl
+/usr/bs/lpdir/file.pl
+/usr/bs/lpdir/files.pl
+/usr/bs/lpdir/flag.pl
+/usr/bs/lpdir/flagro.pl
+/usr/bs/lpdir/func.pl
+/usr/bs/lpdir/genprb.pl
+/usr/bs/lpdir/homog.pl
+/usr/bs/lpdir/imeth.pl
+/usr/bs/lpdir/interp.pl
+/usr/bs/lpdir/load
+/usr/bs/lpdir/log.pl
+/usr/bs/lpdir/long.pl
+/usr/bs/lpdir/loop.pl
+/usr/bs/lpdir/lp.hlp
+/usr/bs/lpdir/lp.pl
+/usr/bs/lpdir/lpicon
+/usr/bs/lpdir/match.pl
+/usr/bs/lpdir/mdhelp.pl
+/usr/bs/lpdir/method.pl
+/usr/bs/lpdir/misc/
+/usr/bs/lpdir/misce.pl
+/usr/bs/lpdir/nasty.pl
+/usr/bs/lpdir/newmet.pl
+/usr/bs/lpdir/ops.pl
+/usr/bs/lpdir/out.pl
+/usr/bs/lpdir/polpak.pl
+/usr/bs/lpdir/poltid.pl
+/usr/bs/lpdir/poly.pl
+/usr/bs/lpdir/portr.pl
+/usr/bs/lpdir/rew.pl
+/usr/bs/lpdir/routin.pl
+/usr/bs/lpdir/rules
+/usr/bs/lpdir/simp.ax
+/usr/bs/lpdir/sol.pl
+/usr/bs/lpdir/specia.pl
+/usr/bs/lpdir/struct.pl
+/usr/bs/lpdir/support.pl
+/usr/bs/lpdir/table.pl
+/usr/bs/lpdir/testenv.pl
+/usr/bs/lpdir/tidy.pl
+/usr/bs/lpdir/tl.pl
+/usr/bs/lpdir/utilops
+/usr/bs/lpdir/weaknf.pl
+/usr/bs/lpdir/wep
+/usr/bs/lpdir/writef.pl
+
+
+/usr/bs/lpdir/misc/README
+/usr/bs/lpdir/misc/count.pl
+/usr/bs/lpdir/misc/getfil.pl
+/usr/bs/lpdir/misc/lp.ccl
+/usr/bs/lpdir/misc/lp.cng
+/usr/bs/lpdir/misc/lp.def
+/usr/bs/lpdir/misc/lp.hol
+/usr/bs/lpdir/misc/lp.sts
+/usr/bs/lpdir/misc/xref.ini
+/usr/bs/lpdir/misc/xrefload
+
+
+/usr/bs/lpdir/test/README
+/usr/bs/lpdir/test/bigtest
+/usr/bs/lpdir/test/dump2
+/usr/bs/lpdir/test/dump3
+/usr/bs/lpdir/test/dump4
+/usr/bs/lpdir/test/dump5
+/usr/bs/lpdir/test/dump6
+/usr/bs/lpdir/test/fifth
+/usr/bs/lpdir/test/first
+/usr/bs/lpdir/test/fourth
+/usr/bs/lpdir/test/lpexam
+/usr/bs/lpdir/test/lpexam.new
+/usr/bs/lpdir/test/lpscores
+/usr/bs/lpdir/test/newrun.pl
+/usr/bs/lpdir/test/newscr
+/usr/bs/lpdir/test/second
+/usr/bs/lpdir/test/sixth
+/usr/bs/lpdir/test/testinp
+/usr/bs/lpdir/test/third
+/usr/bs/lpdir/test/we

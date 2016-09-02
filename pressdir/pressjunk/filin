@@ -1,0 +1,188 @@
+%   File   :  /usr/local/src/press/pressdir/pressjunk/filin
+%   Author : Bernard Silver
+%   Updated: Tue Nov 19 16:04:43 1985
+%   Purpose: PRESS LOAD FILE
+
+% Change these entries to reflect your file system setup
+
+
+:- asserta(library_directory('/usr/local/src/press/util')).
+:- asserta(library_directory('/usr/local/src/press/pressdir/methods')).
+:- asserta(library_directory('/usr/local/src/press/pressdir/axioms')).
+:- asserta(library_directory('/usr/local/src/press/pressdir/package')).
+:- asserta(library_directory('/usr/local/src/press/pressdir/misc')).
+:- asserta(library_directory('/usr/local/src/press/pressdir/toplevel')).
+:- asserta(library_directory('/usr/local/src/press/pressdir/probs')).
+:- asserta(library_directory('/usr/local/src/press/pressdir/pressjunk')).
+:- asserta(library_directory('/usr/local/src/quintus3/generic/qplib/q3.1.2/library')).
+:- asserta(library_directory('/usr/local/src/quintus3/generic/qplib/q3.1.2/tools')).
+
+	% Where the Save state goes (called by ss/0 )
+save_program('/usr/local/bin/press').
+
+	% Load the PRESS files 
+
+:- no_style_check(single_var), no_style_check(discontiguous).
+
+:- 
+	compile([
+
+	library('util.ops'),    % General operator declarations
+	library('arith.ops'),   % Arithmetic operator declarations
+	library(invoca),      	% Invocation routines
+	library(imisce),       	% Miscellaneous	
+	library(applic),       	% Application routines
+	library(arith),        	% New standard arithmetic primitives
+	library(bagutl),       	% Bag routines
+	library(betwee),       	% Generate integers
+	library(files),        	% Manipulate files
+	library(flagro),       	% Flag handling
+	library(gensym),       	% Generate symbols
+	library(getfil),       	% read line/file name
+	library(listut),       	% List routines
+	library(long),         	% Rational arithmatic package
+	library(metutl),       	% More structure crunching
+	library(occur),        	% Subterm finding and replacing
+	library(projec),       	% Breaking lists of terms apart
+	library(readin),       	% Read in a sentence
+	library(setutl),       	% Set routines
+	library(ident),		% Identity proving
+	library(struct),       	% Structure crunching
+	library(tidy),         	% Expression tidy/evaluator
+	library(trace_press),        	% Tracing routines
+	library(writef),       	% Formatted write (writef)
+
+                                %% METHODS
+
+        library(chunk),          % Change of unknown clauses
+        library(collec),         % Collection code
+        library(attrac),         % Attraction code
+
+                                %% AXIOMS
+
+        library('simp.ax'),	% Simplification axioms for tidy
+
+                                %% PACKAGES
+
+        library(match),		%   The matcher to be rewritten
+        library(int),           %   Alan's interval package
+        library(diff),          %   Differentiation
+        library(polpak),        %   Bag + and * of polynomials
+        library(poltid),        %   Poly_form expression
+        library(odds),          %   Clauses from eval (interface to LONG)
+        library(weaknf),        %   Weak normal form
+        library(real),	        %   Interface for file below to solve.
+
+				%% QUINTUS
+
+        library(math),	        %   Quintus supplied C math  interface
+
+
+                                %% MISCELLANEOUS
+
+        library(words),        	% Richard's Wordsin
+        library(gportr),       	% General portray (interim?)
+        library(misc),         	%Miscellaneous stuff ex BASIC
+
+
+                                %% TOP LEVEL
+
+        library(solve),         % Solve clauses
+        library(simeq),         % Simultaneous equations clauses
+        library(sim),           % Simultaneous equations with homogenization
+        library(ineq),          % Inequality clauses (?)
+
+                                %% METHODS
+
+        library(isolat),       	% Isolation clauses
+        library(factor),       	% Factorisation method
+        library(poly),         	% Polynomial methods
+        library('trig.fac'),    % Simple trig factorization
+        library(nas1),         	% Isolation of complicated expression
+        library('homog.top'),   % Homogenisation top level clauses
+        library('homog.trg'),   % Homogenisation trig rules
+        library(log),         	% Clauses for taking logs
+        library(nasty),        	% Nasty function clauses
+
+                                %% AXIOMS
+
+        library('isolat.ax'),  	% Isolation axioms
+        library('ineqis.ax'),  	% Inequality Isolation axioms
+        library('collec.ax'),  	% Collection axioms
+        library('attrac.ax'),  	% Attraction axioms
+        library('homog.rew'),   % Homogenisation rewrite rules
+        library(facts),         % Some meta-level facts
+        library(init),          % Default Initializations
+
+                                %% PACKAGES
+
+        library(prover),        % Theorem prover
+        library(manip),
+
+                                %% MISCELLANEOUS
+
+        library('homog.msc'),    % Miscellaneous homogenisation code
+
+                                %% PROBLEMS
+
+%       library(runex),         % Standard tests 
+        library(demo),         	% Standard demonstrations
+
+                                %% JUNK
+
+         library(facile)       	% Facilities
+]).
+
+:- tlim(1).   
+
+:- style_check(all).
+
+:- dynamic version_date/2.
+
+% Very ugly way to get the version date
+
+:-  unix(system('echo -n ''v_d("'' > /tmp/press.d.tmp;date >> /tmp/press.d.tmp;echo ''").'' >> /tmp/press.d.tmp')),
+	open('/tmp/press.d.tmp',read,Stream),
+	read(Stream,v_d(StringDate)),
+	close(Stream),
+	append(SD,[_],StringDate),
+	!,
+	name(Date,SD),
+	assert(version_date(Date,SD)),
+	unix(system('rm /tmp/press.d.tmp')).
+
+ :- 
+
+	version('PRESS Equation Solver
+
+Copyright (C) 1985 Dept. Artificial Intelligence. Edinburgh
+		GTE Labs Waltham MA.
+
+Authors: Alan Bundy, Bob Welham, Lawrence Byrd, Richard O''Keefe,
+Leon Sterling and Bernard Silver.
+'),
+	version_date(_,SD),
+	append("Version of ",SD,New),
+	name(Message,New),
+	version(Message).
+
+
+
+ss :- 
+	version_date(Date,_),
+	save_file(File), % Declared above
+	save(File),
+	writef_press('\n\t\tPRESS Equation Solver (%w)\n',[Date]),
+	writef_press('\n\t\tDept of Artificial Intelligence\n'),
+	writef_press('\n\t\tUniv. of Edinburgh, Edinburgh, Scotland\n\n\t\tand\n'),
+	writef_press('\n\t\tGTE Laboratories Inc, Waltham MA, USA\n').
+
+
+
+
+
+
+
+
+
+

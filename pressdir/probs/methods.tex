@@ -1,0 +1,153 @@
+\documentstyle[dream]{article}   
+%\documentstyle[a4,dream,equations,TreeTex]{article}   
+
+
+\begin{document}
+\raggedright
+
+\begin{center}
+\begin{Large}
+{\bf Mathematical Reasoning} \\ [20pt]
+\end{Large}
+\begin{Huge}
+{\bf Formalising Control Knowledge}\\ [20pt]
+\end{Huge}
+\begin{Large}
+{\bf Alan Bundy} 
+\end{Large}
+\end{center}
+
+\newpage
+\begin{huge}
+\begin{center} Equation Solving \end{center}
+\end{huge}
+\begin{LARGE}
+\begin{eqnarray*}
+\begin{array}{ccc}
+\log_{e}(x+1)+\log_{e}(x-1) & = & 3 \\
+\log_{e}((x+1).(x-1)) & = & 3 \\
+\log_{e}(x^{2}-1) & = & 3 \\
+x^{2}-1 & = & e^{3} \\
+x^{2} & = & e^{3}+1 \\
+x & = & \pm\sqrt{e^{3}+1} \\
+\end{array}
+\end{eqnarray*}
+\end{LARGE}
+
+
+%
+%
+%
+\newpage
+\centerline{\huge \bf Isolation }
+\begin{LARGE}
+\begin{itemize}
+\item [] Example isolation rules:
+\begin{eqnarray*}
+\log_{V}U=W & \Rightarrow & U=V^{W} \\
+U-V=W & \Rightarrow & U=W+V \\
+U^{2}=V & \Rightarrow & U=\sqrt{V} \vee U=-\sqrt{V} \\
+\end{eqnarray*}
+\subitem $U$ is distinguished variable.
+\item []
+\item [] General format:
+\begin{eqnarray*}
+f(U_{1},\ldots,U_{i},\ldots,U_{n}) = V \\
+\\
+\ \ \Rightarrow {\bigvee_{j}}\ [U_{i}=f_{ij}^{-1}(U_{1},\ldots,V,\ldots,U_{n})]
+\end{eqnarray*}
+\end{itemize}
+\end{LARGE}
+\newpage
+
+% 
+%
+%
+\centerline{\huge \bf Collection}
+\begin{LARGE}
+\begin{itemize}
+\item [] Example collection rules:
+\begin{eqnarray*}
+(U+V).(U-V) & \Rightarrow &U^{2}-V^{2} \\
+\sin U\,.\,\cos U & \Rightarrow & {1 \over 2}\sin 2.U \\
+U.V+U.W & \Rightarrow & U.\,(V+W) \\
+\end{eqnarray*}
+\subitem $U$ is distinguished variable.
+\item []
+\item [] General format:
+\begin{eqnarray*}
+s=t \hbox{ or } s\leftrightarrow t \\
+\end{eqnarray*}
+\begin{center}
+where occ$(U,s)\ >$ occ$(U,t)$, and \\
+$s$ least dominating in $U$\\
+\end{center}
+\end{itemize}
+\end{LARGE}
+\newpage
+
+%
+%
+%
+
+\centerline{ \huge \bf Attraction}
+\begin{LARGE}
+\begin{itemize}
+\item [] Example attraction rules:
+\begin{eqnarray*}
+\log_{W}U+\log_{W}V & \Rightarrow & \log_{W}(U.V) \\
+W.U+W.V & \Rightarrow & W.(U+V) \\
+(W^{U})^{V} & \Rightarrow & W^{U.V} \\
+U^{V.W} & \Rightarrow & (U^V)^W \\
+\end{eqnarray*}
+\subitem $U$ and $V$ are distinguished variables.
+\item []
+\item [] General format:
+\begin{eqnarray*}
+s\lbrack U_{s},V_{s} \rbrack = t\lbrack U_{t},V_{t} \rbrack
+\end{eqnarray*}
+where
+\begin{eqnarray*}
+{\rm dist}(U_{s},V_{s},s)>{\rm dist}(U_{t},V_{t},t)
+\end{eqnarray*}
+\end{itemize}
+\end{LARGE}
+\newpage
+
+
+% ****************************************
+\begin{center}
+\begin{Huge}
+{\bf Other Methods}		% Slide Title
+\end{Huge}
+\end{center}
+
+\begin{LARGE}
+\begin{itemize}
+\item Simplification.
+\item Polynomials.
+\item Trigonometric functions.
+\item Change of unknown.
+\item Homogenization.
+\item Factorization.
+\end{itemize}
+\end{LARGE}
+\newpage
+
+
+% ****************************************
+\begin{center}
+\begin{Huge}
+{\bf Implementation of Methods}		% Slide Title
+\end{Huge}
+\end{center}
+
+\begin{LARGE}
+\begin{itemize}
+\item Rewrite rules
+\item Multiple rule sets
+\item Syntactic characterisation
+\item Selective application
+\end{itemize}
+\end{LARGE}
+\end{document}

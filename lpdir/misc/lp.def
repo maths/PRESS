@@ -1,0 +1,93 @@
+%   File   :  /usr/bs/lpdir/misc/lp.def
+%   Author : Bernard Silver
+%   Updated: Tue Oct 29 21:10:54 1985
+%   Purpose: XREF definition File for LP
+
+   % Headings
+cross_ref_file('/usr/bs/lpdir/misc/lp.ref').
+title('The Major Files of Learning PRESS').
+width(80).	
+globals_file(no).
+update_globals(no).
+
+   % User called predicates
+called(add(_)).
+called(change_method_order).
+
+called(clean).
+called(commutative(_)).
+called(contains_nasties(_,_)).
+called(d(_)).
+called(doc).
+called(dominated(_,_,_)).
+called(dump_stats).
+called(en(_)).
+called(examples).
+called(explain_g(_)).
+called(file_rename(_,_)).
+called(find_type(_,_,_)).
+called(flag(_,_)).
+called(generate(_)).
+called(give(_)).
+called(go).
+called(hard_identical_subterms(_,_,_)).
+called(is_disjunct(_,_)).
+called(is_mod_poly(_,_,_)).
+called(is_product(_,_)).
+called(is_sum(_,_)).
+called(last_equation(_)).
+called(less_nasty(_,_,_)).
+called(less_occ(_,_,_)).
+called(lphelp).
+called(lphelp(_)).
+called(m(_)).
+called(mod_iso_trace(_)).
+called(multiple_offenders_set(_,_,_)).
+called(old_xredo).
+called(portray(_)).
+called(prod_exp_terms_eqn(_,_,_)).
+called(r(_)).
+called(remove_logs(_,_,_,_)).
+called(remove_nasty(_,_,_)).
+called(rhs_zero(_)).
+called(s(_)).
+called(same_occ(_,_,_)).
+called(sredo).
+called(stop).
+called(test).
+called(try_attract(_,_,_)).
+called(try_auto_method(_,_,_,_)).
+called(try_collect(_,_,_)).
+called(try_function_stripping(_,_,_,_)).
+called(try_homog(_,_,_,_)).
+called(try_to_isolate(_,_,_)).
+called(try_poly(_,_,_)).
+called(try_prep_fact(_,_,_)).
+called(try_user_rule(_,_,_,_)).
+called(user_help).
+called(w(_)).
+called(wep).
+called(work(_)).
+called(writeall).
+   % Known predicates.
+
+known(helper_file(_),'/usr/bs/lpdir/lp.pl').
+known(icon_file(_),'/usr/bs/lpdir/lp.pl').
+known(monitor_help(_),'/usr/bs/lpdir/lp.pl').
+known(save_file(_),'/usr/bs/lpdir/lp.pl').
+known(writef(_),'/usr/bs/lpdir/writef.pl').
+known(writef(_,_),'/usr/bs/lpdir/writef.pl').
+ % Applies
+applies(process_reply(_,B,_,_,_),B).
+applies(process_reply(_,_,_,_,E),E).
+applies(user_macro(A,_,_),A).
+applies(user_macro(_,_,C),C).
+
+
+applies( checklist(Pred,List), Pred+1 ).
+applies( maplist(Pred,List1,List2), Pred+2 ).
+applies( not(Goal), Goal ).
+applies( some(Pred,List), Pred+1 ).
+applies( sublist(Pred,List1,List2), Pred+1 ).
+
+

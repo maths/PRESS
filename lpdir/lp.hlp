@@ -1,0 +1,159 @@
+                                                                 Bernard Silver
+	       					         Updated: 8 August 1985
+
+                               HELP FILE FOR LP
+
+
+
+
+
+
+LP  is in /usr/local/bin/lp
+
+
+LP has two basic operations, solving equations and examining worked examples.
+The two methods are described below.  Some of the descriptions talk about
+turning flags on and off.  Unless otherwise indicated, to turn on flag Flag,
+type "enable Flag", and to turn it off type "disable Flag".  If the flag is
+already set to that value a message to that effect is output.
+
+Equation Solving
+
+To  do  the  first  type  "solve(Eqn)",  where  Eqn  is  an  equation  in x, or
+"solve(Eqn,X,Ans)" for the general case as in PRESS.
+
+To start with, the program will not be able to solve many problems, as it
+does not have the rules or schemas.  If desired the standard examples and
+problems can be read in by typing "wep".  The problems are called t1 - t7,
+and the worked examples are trig1, trig2,  trig3 and demo1.  
+(There are more but they are  commented out)
+
+The  last equation can be rerun by typing "sredo".  This is unlike PRESS in that
+the last equation is automatically stored without the need for a go predicate.
+
+Typing "generate problem" causes LP to generate a set of equations  similar  to
+the  one  that produced the last schema, (see section on worked examples.)  The
+user can then indicate that LP should attempt to solve one of these  equations.
+This allows the generality of the schema to be tested.
+
+Typing  "show schemas" just displays the schemas, without asking if they should
+be removed.
+
+Typing "show solve" outputs all the steps on the  solution  path  of  the  last
+equation, this command uses stored assertions and the equation is not rerun.  
+
+Worked Examples
+
+To  run  a  worked  example,  either  use one of the standard problems, or type
+"give example" and the example can then be entered line by line,  typing  <CR>
+on  a new line to finish.  "xredo" will rerun this example.  Typing "old_xredo"
+will first remove the new schema and any new rules, etc, that  have  just  been
+added,  before  rerunning the example (i.e.  it restores the program to the old
+state.)
+
+In giving a worked example a few painful conventions have to be  used.    If  a
+line  of the form A*B=0 occurs the next line must be A=0#B=0.  Now the line A=0
+(or B=0) occurs, followed by the solution of this equation.    Then  the  other
+factor is given, followed by this equation.  For example:
+
+    cos(x) + 2 * cos(2 * x) + cos(3 * x) = 0
+
+    cos(x * 2) * cos(x) * 2 + cos(x * 2) * 2 = 0
+
+    cos(x * 2) * (cos(x) * 2 + 2) = 0
+
+    cos(x * 2) = 0 #  cos(x) * 2 + 2 = 0
+
+    cos(x * 2) = 0
+
+    x =  (n1 * 360 +  90) * (1/2) # x = (n1 * 360 +  -90) * (1/2)
+
+    cos(x) * 2 + 2 = 0
+
+    x =  n2 * 360 + 180  #  x = n2 * 360 +  -180
+
+Similar  remarks  apply  to  the Change of Unknown case (where the substitution
+must be explicitly shown, as must the substitution back) and disjunctions.
+
+
+Defaults for Flags
+
+Normally  the  worked  example is not output at the beginning of the run.  This
+can be turned on by turning on the "output" flag,  and  turning  the  flag  off
+again  turns  off  the output.
+
+Depending on the enivroment (e.g. is LP being run within emacs)
+LP usually  clears the screen from time to time (using the UNIX clear command).
+Use disable clearscreen to switch this flag off.
+
+When solving equations, LP uses a loop checker.  The default value of the  loop
+flag  is  "yes".    If the program finds that it is trying to solve an equation
+that it has met before (on the same run!), it will output a message and ask the
+user what to do.  This is not always  due  to  an  error,  sometimes  the  same
+equation is arrived at by backtracking, but there is no real loop.
+
+The  flag  can be set to "no", in which case no loop checking occurs, or it can
+be set to "warn", in which case if  the  looping  condition  occurs  a  warning
+message is output, but the program continues.
+
+When  the  flag  is  set  to  yes  and  the  user  is prompted, the options are
+continuing, aborting, setting the flag to warn or no, or entering a break.
+
+When LP is given a worked example, it will sometimes produce a  new  method  to
+explain  the example.  This is only allowed if the "new_methods" flag is turned
+on, which is the default value.    Turning  the  flag  off  also  disables  the
+corresponding  method(NewMethod)  flags,  so  that  these  new  methods are not
+available to the program.
+
+There is also an allschemas flag, which determines if LP should consider
+more than one schema.  The default is that is doesnt, only one schema is used.
+
+The default for other flags is that they are all enabled.  
+
+Other commands and flags.
+
+Here are useful commands which apply to both worked examples and equations.
+
+"show    rules"   does   the   obvious   thing,   as   does   "remove   rules".
+"remove rule(Name)" remove the rule of that  name,  and  "remove  rules(List)".
+does the same for a list of names.
+
+"show flags" shows the current setting of all the flags.
+
+"enable  Method"  and  "disable  Method"  turn  on  and  off  the corresponding
+method(Method) flag.  If the method(Method) flag is off, the method Method  can
+not  be used either to solve equations or to process worked examples.  If solve
+is being used, and a method needed in  a  schema  is  turned  off,  interesting
+things can happen!
+
+"show methods" lists all currently enabled methods.
+
+"show rules_list" lists the names of the rules associated with the new methods.
+
+"show  new methods"  lists  the  new  methods along with their "applicable next
+method."  This is a method that should be applied after the new method.
+
+The prefix command "writeout" is like show, but prompts for  a  file  name  and
+directs output to that file.  writeout can be used with "rules", "schemas", and
+"solve".
+
+disable, remove,  show  and  writeout can be shortened to their first
+letter, e.g. "s methods". enable can be shortened to en. (To avoid clashes 
+with e).
+
+"give example", mentioned above, allows the user to  input  a  worked  example.
+"xredo" reruns this example, sredo reruns the last solve command.
+
+"work solution"  uses  the trace produced by the last solve command as a worked
+example.
+
+"generate problem", mentioned above, generates a  set  of  equations  that  are
+close  relatives  of  the  equation  in  the  last  schema produced by a worked
+example.  The user is asked  if  LP  should  attempt  to  solve  one  of  these
+equations.
+
+"add new rule" allows the user to add rules to the system.  It uses the normal
+rule input system, and prompts.
+
+
+

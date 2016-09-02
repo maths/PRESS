@@ -1,0 +1,21 @@
+
+
+l(X) :- listing(X).
+
+
+s :- save('scra:save').
+
+r :- restore(save).
+
+ss :- save('scra:save2').
+
+rr :- restore(save2).
+
+sb :- save('prolog.bin').
+
+
+run(Prog) :- plsys( run(Prog,0) ).
+
+--------
+
+

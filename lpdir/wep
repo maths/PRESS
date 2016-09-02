@@ -1,0 +1,360 @@
+%   File   :  /usr/bs/lpdir/wep
+%   Author : Bernard Silver
+%   Updated: Tue Oct 15 12:05:26 1985
+%   Purpose: Problems for LP
+
+:- asserta(integral(n1)).
+:- asserta(integral(n2)).
+:- asserta(integral(n3)).
+:- asserta(integral(n4)).
+:- asserta(integral(n5)).
+
+ % Worked examples
+
+trig1 :- work([
+
+cos(x) + 3/2*cos(2 * x) + cos(3 * x) = 0,
+
+2*cos(x * 2) * cos(x) + (3/2)* cos(x * 2) = 0,
+
+cos(x * 2) * (2*cos(x) + 3/2) = 0,
+
+cos(2 * x) = 0 #  2*cos(x) + 3/2 = 0,
+
+cos(2 * x) = 0,
+
+x =  (180 * n1) * (1/2) +  45,
+
+2*cos(x)  + 3/2 = 0,
+
+
+x =  n2 * 360 + arccos(-(3/4)) # x= n2*360 + -1*arccos(-(3/4))
+
+],x).
+
+trig2 :- 
+	work([
+
+	sin(2*x) + sin(3*x) + sin(5*x) = 0,
+
+	sin(5*x) + 2*sin(5*x/2)*cos(x/2)  = 0,
+
+	2*sin(5*x/2)*cos(x/2) + 2*sin(5*x/2)*cos(5*x/2) = 0,
+	
+	2*sin(5*x/2)*(cos(x/2) + cos(5*x/2)) = 0,
+	
+	sin(5*x/2) = 0 # (cos(x/2) + cos(5*x/2)) = 0,
+	
+	sin(5*x/2) = 0,
+	
+	x = n2 * 72,
+	
+	(cos(x/2) + cos(5*x/2)) = 0,
+
+	2*cos(3*x/2)*cos(x) = 0,
+	
+	cos(3*x/2) = 0 # cos(x) = 0,
+	
+	cos(3*x/2) = 0,
+	
+	x = (120 * n3) + 60,
+	
+	cos(x) = 0,
+	
+	x = n1 * 180 + 90
+	
+	],x).
+
+usefulprob :- work([(x + 1/(8*x)+ 1/(8*x))^2 + 2*(x+1/(4*x)) + 1 = 0,
+
+(x + 1/(4*x))^2 + 2*(x+1/(4*x)) + 1 = 0,
+
+y=(x+1/(4*x)),
+
+y^2 + 2*y +1 = 0,
+
+y = -1,
+
+(x+1/(4*x))=  -1,
+
+x = -1/2
+
+
+],x).
+
+
+
+
+demo1 :- 
+
+	work([
+
+	log(2,x) + 4*log(x,2) = 5,
+	
+	log(2,x) + 4*log(2,x)^ -1 = 5,
+	
+	y = log(2,x),
+	
+	y + 4*y^ -1 = 5,
+	
+	y^2 + 4 = 5*y,
+	
+	y = 1 # y = 4,
+	
+	log(2,x) = 1 # log(2,x) = 4,
+	
+	log(2,x) = 1,
+	
+	x = 2,
+	
+	log(2,x) = 4,
+	
+	x = 16
+	
+	],x).
+
+trig3 :- 
+
+	work([
+	
+	sin(6*x) + cos(6*x) + sin(4*x) + cos(4*x) = 0,
+	
+	sin(6*x) + sin(4*x) + 2*cos(5*x)*cos(x) = 0,
+	
+	2*sin(5*x)*cos(x) + 2*cos(5*x)*cos(x) = 0,
+	
+	2*cos(x)*(sin(5*x) + cos(5*x)) = 0,
+	
+	cos(x) = 0 # sin(5*x) + cos(5*x) = 0,
+	
+	cos(x) = 0,
+	
+	x = 180*n1 + 90,
+	
+	sin(5*x) + cos(5*x) = 0,
+	
+	tan(5*x) = -1,
+	
+	x= (180*n2)*(1/5) + 9* -1
+	
+	],x).
+
+trig4 :-
+	work([
+
+	sin(x) + cos(x)*cos(2*x) - cos(2*x)*cos(3*x) = 0,
+
+	sin(x) + cos(2*x)*(cos(x) - cos(3*x)) = 0,
+
+	sin(x) + cos(2*x)*2*sin(2*x)*sin(x) = 0,
+
+	sin(x)*(1+2*cos(2*x)*sin(2*x)) = 0,
+
+	sin(x) = 0 # (1+2*cos(2*x)*sin(2*x)) = 0,
+
+	sin(x) = 0,
+
+	x= 180*n1,
+
+	(1+2*cos(2*x)*sin(2*x)) = 0,
+
+	1+ sin(4*x) = 0,
+
+	x = (-45/2) + 90*n2
+
+	],x).
+
+
+/*
+
+trig1a :-
+	work([
+
+	sin(x)+2*sin(2*x)+sin(3*x)=0,
+
+	2*sin(2*x)+2*sin(2*x)*cos(x)=0,
+
+	2 * sin(2 * x) * (1 + cos(x)) = 0,
+
+	sin(2*x)=0 # cos(x) + 1 = 0,
+
+	sin(2 * x) = 0,
+
+	x = 90 * n4,
+
+	1 + cos(x) = 0,
+	
+	x = 180 + 360 * n3
+
+	],x).
+
+
+trig1b :-
+	work([
+	
+	sin(x) + 2*cos(2*x)- sin(3*x) = 0,
+
+	2 * cos(2 * x) + -2 * sin(x) * cos(2 * x) = 0,
+
+	cos(2 * x) * (2 + -2 * sin(x)) = 0,
+
+	cos(2 * x) = 0 # (2 + -2 * sin(x)) = 0,
+
+	cos(2 * x) = 0,
+
+	x = 45 + 90 * n1,
+
+	2 + -2 * sin(x) = 0,
+
+	x = 180 * n2 + 90 * -1 ^ n2
+
+	],x).
+
+ 
+trig1c :-
+	work([
+
+	cos(x)-2*sin(2*x)-cos(3*x)=0,
+
+	-2 * sin(2 * x) + 2 * sin(2 * x) * sin(x) = 0,
+
+	sin(2 * x)*(-2 + 2*sin(x)) = 0,
+
+	sin(2 * x) = 0 # (-2 + 2*sin(x)) = 0,
+
+	sin(2 * x) = 0,
+
+	x = 90 * n3,
+
+	-2 + 2*sin(x) = 0,
+
+	x = 180 * n4 + 90 * -1 ^ n4
+
+	],x).
+
+
+homogprob :- 
+	work([
+
+	log(2,x)^2 - 2*g(x) + 3 = 0,
+	
+	log(2,x)^2 - 2*(log(2,x) + 1) + 3 = 0,
+	
+	y = log(2,x),
+	
+	y^2 - 2*y + 1 = 0,
+	
+	y=1,
+	
+	log(2,x) = 1,
+	
+	x=2
+
+	]).
+
+workrun :- trig1,trig1a,trig1b,trig1c,trig2,trig3,trig4.
+
+bookprob1 :- 
+
+	work([
+	
+	sin(x) - cosec(x) + 3/2 = 0,
+	
+	sin(x) - 1/sin(x) + 3/2 = 0,
+	
+	y = sin(x),
+	
+	y - 1/y + 3/2 = 0,
+	
+	y^2 + 3*y/2 = 1,
+	
+	y^2 + 3*y/2 + 9/16 = 1 + 9/16,
+	
+	y + 3/4 = 5/4 # y + 3/4 = -5/4,
+	
+	y = -2 # y = 1/2,
+	
+	sin(x) = -2 # sin(x) = 1/2,
+	
+	sin(x) = -2,
+	
+	false,
+	
+	sin(x) = 1/2,
+	
+	x = n1*180 + (-1)^n1*30
+
+	]).
+
+bookprob2 :- 
+
+	work([
+
+	cosec(x) - cot(x)^2 + 1 = 0,
+	
+	cosec(x) - cosec(x)^2 + 2 = 0,
+	
+	y = cosec(x),
+	
+	y - y^2 + 2 = 0,
+	
+	y^2 - y = 2,
+	
+	y^2 - y + 1/4 = 9/4,
+	
+	y - 1/2 = 3/2 # y - 1/2 = -3/2,
+	
+	y = 2 # y = -1,
+	
+	cosec(x) = 2 # cosec(x) = -1,
+	
+	cosec(x) = 2,
+	
+	x = n1*180 + (-1)^n1*30,
+	
+	cosec(x) = -1,
+	
+	x = n1*180 + (-1)^n1*(-90)
+
+	]).
+
+
+*/
+ % Problems for solve
+
+t1 :-   solve(cos(x)=sin(2*x),x,_).
+
+t2 :-   solve(cos(x)=3*sin(2*x),x,_).
+
+t3 :-   solve(sin(x) - sin(2*x) + sin(3*x)=0,x,_).
+
+t3a :- solve(sin(x)+sin(2*x)+sin(3*x)=sin(x)*sin(2*x),x,_).
+
+t4 :-   solve(2*cos(x)+3*cos(3*x)+2*cos(5*x)=0,x,_).
+
+t5 :-   solve(cos(x)+cos(2*x)+cos(3*x)=0,x,_).
+
+t6 :- solve(cos(4*x) + cos(2*x) - sin(4*x) + sin(2*x) = 0,x,_).
+
+t6a :- solve(sin(5*x) - sin(3*x) = sin(4*x)-sin(2*x),x,_).
+
+t7 :- solve(sin(x)+sin(2*x)+sin(3*x)=0,x,_).
+
+
+t8 :-	solve(log(3,x)+log(x,3)*5=5,x,_).
+solverun :- t1,t3,t4,t5,t7.
+
+timeprob(Prob) :-
+	statistics(runtime,_),
+	call(Prob),
+	!,
+	statistics(runtime,[_,Time]),
+	writef('\n%t took %t milliseconds\n',[Prob,Time]).
+
+timeprob(Prob) :-
+	statistics(runtime,[_,Time]),
+	writef('\nCould not solve problem %t,the attempt  took %t milliseconds
+	\n',[Prob,Time]).
+
+
+

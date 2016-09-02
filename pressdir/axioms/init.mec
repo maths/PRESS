@@ -1,0 +1,59 @@
+/*                  INIT.MEC                1.4.81  */
+
+/*   Various initialisations for MECHO.   */
+
+  const(g).
+  const(zero).
+
+
+
+/*SEMANTIC INFORMATION*/
+
+quantity(reactionq1).	measure(reactionq1,reaction1).
+quantity(muq).		measure(muq,mu).
+quantity(vcq).		measure(vcq,vc).
+quantity(velq1).	measure(velq1,vel1).
+quantity(tq0).		measure(tq0,t0).
+quantity(tq1).		measure(tq1,t1).
+quantity(tq2).		measure(tq2,t2).
+quantity(tq3).		measure(tq3,t3).
+quantity(dq0).		measure(dq0,d0).
+quantity(dq1).		measure(dq1,d1).
+quantity(dq2).		measure(dq2,d2).
+quantity(dq3).		measure(dq3,d3).
+quantity(aq0).		measure(aq0,a0).
+quantity(aq1).		measure(aq1,a1).
+quantity(aq3).		measure(aq3,a3).
+quantity(vq).		measure(vq,v).
+quantity(hq1).		measure(hq1,h1).
+quantity(hq2).		measure(hq2,h2).
+quantity(hq).		measure(hq,h).
+quantity(rq).		measure(rq,r).
+quantity(tq).		measure(tq,t).
+quantity(aq).		measure(aq,a).
+quantity(angq).		measure(angq,ang).
+quantity(dq).		measure(dq,d).
+quantity(mq).		measure(mq,m).
+quantity(mq1).		measure(mq1,m1).
+quantity(mq2).		measure(mq2,m2).
+quantity(tsnq).		measure(tsnq,tsn).
+quantity(l1q).		measure(l1q,l1).
+quantity(yq).		measure(yq,y).
+
+incline(s3,tq,cc).	slope(s3,right).		concavity(s3,stline).
+incline(s4,yq,bot).	slope(s4,right).		concavity(s4,stline).
+angle(tp1,angq,semi).	partition(semi,[s1,s2]).
+			slope(s1,left).			concavity(s1,right).
+			slope(s2,right).		concavity(s2,right).
+angle(tp2,dq,dome).	slope(dome,left).		concavity(dome,right).
+
+
+/*unknowns*/
+sought(h1).		sought(h2).		sought(t).
+sought(v).		sought(h).		sought(x).
+sought(a).		sought(d).		sought(l).
+intermediate(y).	intermediate(ang).	intermediate(m).
+given(r).		given(g).		given(m1).
+given(m2).
+
+

@@ -1,0 +1,152 @@
+%   File   : LPEXAM.NEW
+%   Author : Bernard Silver
+%   Updated: 22 September 1984
+%   Purpose: New test problems for LP
+
+:- dynamic q/3.   % Used by clause
+
+			/* NEW AEB PROBLEMS */
+
+/* June 1977 Paper 1 */
+
+q(Ans,105,Time) :- solve(3*cos(x)+6*sin(x)=1,x,Ans,Time).
+
+/* Paper 2 */
+
+q(Ans,106,Time) :- solve(tan(x)=tan(4*x),x,Ans,Time).
+
+q(Ans,107,Time) :- solve(2*cosh(x)+sinh(x)=2,x,Ans,Time).
+
+/* Nov 1977 Paper 1*/
+
+q(Ans,108,Time) :- solve(log(4,x)+log(2,x)=6,x,Ans,Time).
+  % Show first that log(a,n)=log(b,n)/log(b,a,x,Ans,Time)..
+
+
+q(Ans,109,Time) :- solve(cos(2*x)-2*sin(2*x)=2,x,Ans,Time).
+
+q(Ans,110,Time) :- solve(sin(x) - sin(2*x) + sin(3*x)=0,x,Ans,Time).
+
+ /* Paper 2 */
+
+
+/* June 1978 Paper 1 */
+
+q(Ans,111,Time) :- solve(3*log(8,x) - 8*log(x,2)=8,x,Ans,Time).
+
+q(Ans,112,Time) :- solve(6*sin(x)^2 - cos(x) = 5,x,Ans,Time).
+
+q(Ans,113,Time) :- solve(tan(2*x)+4*cot(x) = 0,x,Ans,Time).
+
+/* November 1978 Paper 1 */
+
+q(Ans,114,Time) :- solve(sec(x)^2 = 3+tan(x),x,Ans,Time).
+
+q(Ans,115,Time) :- solve(sin(2*x)=4*cos(2*x)-1,x,Ans,Time).
+
+
+/* June 1979  Paper 1 */
+
+q(Ans,116,Time) :- solve(log(3,(9*x-2)) = 2+2*log(3,x),x,Ans,Time).
+
+q(Ans,117,Time) :- solve(6*(3^(2*x)) - 5*3^x + 1 = 0,x,Ans,Time).
+
+/* Paper 2 */
+
+q(Ans,118,Time) :- solve(sin(x)+sin(2*x)+sin(3*x)=sin(x)*sin(2*x),x,Ans,Time).
+
+
+/* Nov 1979 Paper 1*/
+
+q(Ans,119,Time) :- solve(5^(2*x) - 9*5^x - 10 = 0,x,Ans,Time).
+
+q(Ans,120,Time) :- solve((10/98)^x = 15/10*10^947,x,Ans,Time).
+
+q(Ans,121,Time) :- solve(5*sin(x)^2 + sin(x)*cos(x) = 3,x,Ans,Time).
+
+/* Paper 2 */
+
+q(Ans,122,Time) :- solve(sin(x) + cos(x)*cos(2*x)=cos(2*x)*cos(3*x),x,Ans,Time).
+
+/* June 1980 Paper 2 */
+
+q(Ans,123,Time) :- solve(2*3^(1/2)*sin(x)^2 -sin(2*x) = 0,x,Ans,Time).
+
+/* Nov 1980  Paper 2 */
+
+q(Ans,124,Time) :- solve(sin(5*x) - sin(3*x) = sin(4*x)-sin(2*x),x,Ans,Time).
+
+/* June 1981 Paper 1 */
+
+q(Ans,125,Time) :- solve(sin(x)-2*cos(x) = 1,x,Ans,Time).
+
+/* Nov 1981 Paper 1 */
+
+q(Ans,126,Time) :- solve(e^(3*x) - 11*e^x + 14 = 0,x,Ans,Time).
+
+q(Ans,127,Time) :- solve(4*sin(2*x) + 3*cos(2*x) = 249/100,x,Ans,Time).
+
+q(Ans,128,Time) :- solve(cos(x)-cos(2*x)=1/2,x,Ans,Time).
+% Show first that
+% 2*cos(x)*cos(x/2) - 2*cos(2*x)*cos(x/2) = cos(x/2) - cos(5*x/2)
+% Hence show that pi/5 and 3pi/5 are roots 
+
+/* June 1982 Paper 1 */
+
+
+q(Ans,129,Time) :- solve(arcsin(x) - arccos(x) = arcsin(1-x),x,Ans,Time).
+% Show first that sin(arcsin(x) - arccos(x)) = 2*x^2 - 1
+
+q(Ans,130,Time) :- solve(sec(x)^2 - 3*tan(x) - 5 = 0,x,Ans,Time).
+
+q(Ans,131,Time) :- solve(cos(4*x) + cos(2*x) - sin(4*x) + sin(2*x) = 0,x,Ans,Time).
+
+/* Nov 1982 Paper 1 */
+
+q(Ans,132,Time) :- solve(log(3,x)=log(x,2),x,Ans,Time).
+
+q(Ans,133,Time) :- solve(6^(3-4*x)*4^(x+4)=2,x,Ans,Time).
+% Solve both the above in terms of p and q, where p is log(10,2) and
+% q is log(10,3)
+
+q(Ans,134,Time) :- solve(8*sin(x) + cos(x)=4,x,Ans,Time).
+% Ask to find values of tan(x/2) and cos(x)
+
+/* Paper 2 */
+
+q(Ans,135,Time) :- solve(2*cosh(x) + sinh(x) = 2,x,Ans,Time).
+
+q(Ans,136,Time) :- solve(sec(x) + cosec(x) = 2*2^(1/2),x,Ans,Time).
+
+/* June 1983 Paper 1 */
+
+q(Ans,137,Time) :- solve(4*log(3,x) = 9*log(x,3),x,Ans,Time).
+
+q(Ans,138,Time) :- solve(10^(y-5)= 5^(y+2),y,Ans,Time).
+
+q(Ans,139,Time) :- solve(sin(x) + 2*cos(x) = 0,x,Ans,Time).
+
+q(Ans,140,Time) :- solve(sin(x) + 2*cos(x) = 1,x,Ans,Time).
+
+q(Ans,141,Time) :- solve(arctan(x) + arctan(2*x) = pi/4,x,Ans,Time).
+
+/* Nov 1983 Paper 1 */
+
+q(Ans,142,Time) :- solve(2*sec(x/2)^2 - tan(x/2)^2 = 0,x,Ans,Time).
+
+/* June 1984 Paper 1 */
+
+q(Ans,143,Time) :- solve(x^3 - 7*p^2*x + 6*p^3 = 0,x,Ans,Time).
+
+q(Ans,144,Time) :- solve(4*sec(x)^3 - 7*sec(x) + 3 = 0,x,Ans,Time).
+
+q(Ans,145,Time) :- solve(sin(x) + cos(x) = 1/2,x,Ans,Time).
+
+q(Ans,146,Time) :- solve(10*sin(2*x + 26)*cos(2*x - 26) = 1,x,Ans,Time).
+
+ :- compile('lpexam.run').
+
+
+
+
+

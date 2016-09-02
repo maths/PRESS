@@ -1,0 +1,72 @@
+%   File   :  /usr/bs/pressdir/pressjunk/press.def
+%   Author : Bernard Silver
+%   Updated: Fri Nov  8 12:29:52 1985
+%   Purpose: Def XREF file for PRESS
+
+cross_ref_file(xref).
+title('PRESS Equation Solving System').
+width(80).      
+globals_file(no).
+update_globals(no).
+
+%% Top-level solve, simsolve & inequality calls
+
+called(solve(Eqn,X,Ans)).
+called(solve(Eqn,X)).
+called(solve(Eqn)).
+called(sim(Eqns,Unks,Ans)).
+called(sim(Eqns,Unks)).
+called(sim(Eqns)).
+called(simsolve(Eqns,Unks,Ans)).
+called(simsolve(Eqns,Unks)).
+called(simsolve(Eqns)).
+called(solveineq(Eqns,Unks,Ans)).
+called(ident(X)).
+
+%% Facilities
+
+called(go).
+called(oops).
+called(bye).
+called(eredo).
+called(report_on).
+called(report_off).
+called(frequent_words(Exp,Ans)).
+
+%% Interval package bypasses
+
+called(acute(X)).
+called(arbint(X)).
+called(in(X,Y)).
+called(non_pos(X)).
+called(non_reflex(X)).
+called(obtuse(X)).
+
+known(process_ans_23(_,_),'/usr/bs/pressdir/package/real.pl').
+
+applies(isolax(Posn,Old,New,Cond),Cond).
+applies(checklist(A,B),A+1).
+applies( maplist(Pred,List1,List2), Pred+2 ).
+applies( not(Goal), Goal ).
+applies( some(Pred,List), Pred+1 ).
+applies( sublist(Pred,List1,List2), Pred+1 ).
+
+
+%% Running exam questions
+
+called(run).
+called(smallrun).
+called(mechorun).
+called(lewisrun).
+called(exam).
+called(aebrun).
+called(lonrun).
+called(dlonrun).
+called(oxfrun).
+called(highrun).
+called(eurocamrun).
+called(basic).
+called(example1).
+called(example2).
+called(example3).
+called(example4).

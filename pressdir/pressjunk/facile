@@ -1,0 +1,60 @@
+/* FACILE : Some conveniences for PRESS
+
+                                                Lawrence
+                                                Updated: 22 November 1984
+
+
+22 November 1984  Bernard
+Changed redo to eredo to avoid clash with EDIT.PL use.  (LP uses sredo!)
+*/
+
+%% Run Interpreted %%
+
+:- dynamic last_equation/1.
+
+
+                        % Go from the terminal
+
+go   :- ttynl, display('Equation: '), ttyflush,
+        read(Equation),
+        asserta( last_equation(Equation) ),
+        solve(Equation).
+
+
+
+                        % Show all the equations
+
+show :- ttynl, display('Equations:'), ttynl, ttynl,
+        last_equation(Equation),
+        ttyprint(Equation), ttynl,
+        fail.
+
+show.
+
+
+
+                        % Redo last equation
+
+eredo :- call( last_equation(Equation) ),
+        !,
+        solve(Equation).
+
+ eredo :- writef_press('\nNo previous equation!\n').
+
+
+                        % Remove record of last equation
+
+oops :- retract( last_equation(_) ),
+        display('(Ok, I''ve forgotten it!)'), ttynl,
+        !.
+
+
+
+                        % Leave Press, showing all the equations
+
+bye  :- 
+        show, ttynl,
+        display('Goodbye'), ttynl,
+        halt.
+
+last_equation(_) :- fail.       % For initialisation and xref

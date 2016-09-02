@@ -1,0 +1,13 @@
+/* PRESS.OPS : Operator declarations for Press
+
+                                                Updated: 12 August 82
+*/
+
+%% The following are now in UTIL:ARITH.OPS and are loaded into UTIL
+
+  :- op(500,yfx,[++,--]).
+  :- op(400,yfx,[div,mod]).
+  :- op(300,xfy,[:,^]).
+
+
+%% Since there is nothing else this file is not currently used (in FILIN)

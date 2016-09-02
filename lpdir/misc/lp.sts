@@ -1,0 +1,54 @@
+%   File   :  /usr/bs/lpdir/misc/lp.sts
+%   Author : Bernard Silver
+%   Updated: Wed Oct 30 10:25:01 1985
+%   Purpose: Clause count for LP
+
+/usr/bs/lpdir/utilops		 0 clauses   0 predicates.
+/usr/bs/lpdir/arithops		 0 clauses   0 predicates.
+/usr/bs/lpdir/ops.pl		 0 clauses   0 predicates.
+/usr/bs/lpdir/files.pl		 3 clauses   3 predicates.
+/usr/bs/lpdir/writef.pl	       101 clauses  26 predicates.
+/usr/bs/lpdir/routin.pl		40 clauses  21 predicates.
+/usr/bs/lpdir/flagro.pl		 3 clauses   3 predicates.
+/usr/bs/lpdir/struct.pl		35 clauses  16 predicates.
+/usr/bs/lpdir/long.pl          258 clauses  83 predicates.
+/usr/bs/lpdir/tidy.pl          112 clauses  24 predicates.
+/usr/bs/lpdir/match.pl    	26 clauses   9 predicates.
+/usr/bs/lpdir/portr.pl    	29 clauses   9 predicates.
+/usr/bs/lpdir/weaknf.pl    	16 clauses   6 predicates.
+/usr/bs/lpdir/cond.pl    	91 clauses  47 predicates.
+/usr/bs/lpdir/char.pl   	58 clauses  27 predicates.
+/usr/bs/lpdir/simp.ax   	16 clauses   2 predicates.
+/usr/bs/lpdir/rew.pl    	37 clauses  14 predicates.
+/usr/bs/lpdir/file.pl    	28 clauses  18 predicates.
+/usr/bs/lpdir/comp.pl	       120 clauses  55 predicates.
+/usr/bs/lpdir/polpak.pl		53 clauses  19 predicates.
+/usr/bs/lpdir/misce.pl           8 clauses   5 predicates.
+/usr/bs/lpdir/tl.pl		76 clauses  38 predicates.
+/usr/bs/lpdir/out.pl   	       191 clauses  94 predicates.
+/usr/bs/lpdir/bag.pl     	 7 clauses   4 predicates.
+/usr/bs/lpdir/conj.pl    	80 clauses  32 predicates.
+/usr/bs/lpdir/desc.pl    	21 clauses  10 predicates.
+/usr/bs/lpdir/loop.pl    	20 clauses  11 predicates.
+/usr/bs/lpdir/sol.pl   	       162 clauses  82 predicates.
+/usr/bs/lpdir/imeth.pl    	37 clauses  18 predicates.
+/usr/bs/lpdir/confir.pl    	57 clauses  30 predicates.
+/usr/bs/lpdir/flag.pl    	99 clauses  47 predicates.
+/usr/bs/lpdir/method.pl		57 clauses  17 predicates.
+/usr/bs/lpdir/specia.pl  	18 clauses   8 predicates.
+/usr/bs/lpdir/table.pl   	46 clauses   7 predicates.
+/usr/bs/lpdir/constr.pl  	27 clauses   8 predicates.
+/usr/bs/lpdir/func.pl    	40 clauses  11 predicates.
+/usr/bs/lpdir/newmet.pl  	64 clauses  28 predicates.
+/usr/bs/lpdir/interp.pl  	80 clauses  41 predicates.
+/usr/bs/lpdir/genprb.pl  	44 clauses  20 predicates.
+/usr/bs/lpdir/nasty.pl	       111 clauses  50 predicates.
+/usr/bs/lpdir/axioms.pl    	75 clauses   3 predicates.
+/usr/bs/lpdir/poly.pl		31 clauses  15 predicates.
+/usr/bs/lpdir/homog.pl	       219 clauses  83 predicates.
+/usr/bs/lpdir/log.pl    	26 clauses  13 predicates.
+/usr/bs/lpdir/testenv.pl    	28 clauses  16 predicates.
+/usr/bs/lpdir/poltid.pl    	 8 clauses   5 predicates.
+===========================================================
+	Grand total:          2668 clauses 1084 predicates.
+===========================================================

@@ -1,0 +1,9 @@
+%   File   :  /usr/bs/lpdir/arithops
+%   Author : Lawrence Byrd
+%   Updated: Tue Oct 15 11:45:11 1985
+%   Purpose: Operator declarations for arithmetic expressions
+%            Now present in UTIL, used by PRESS and others
+
+  :- op(500,yfx,[++,--]).
+  :- op(400,yfx,div).
+  :- op(300,xfy,:).

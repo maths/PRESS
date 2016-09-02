@@ -1,0 +1,51 @@
+
+:- no_style_check(single_var).
+:- flag(rules,_,yes).
+:- dynamic user_rule/7.
+
+user_rule(cossum, A, cos(B) + cos(C) => 2 * cos(number(+, [1], [2]) * (B + C)) * cos(number(+, [1], [2]) * (-1 * B + C)), [], D, D, []).
+
+user_rule(sinsum, A, sin(B) + sin(C) => 2 * sin(number(+, [1], [2]) * (B + C)) * cos(number(+, [1], [2]) * (-1 * B + C)), [], D, D, []).
+
+user_rule(sindiff, A, -1 * sin(B) + sin(C) => 2 * cos(number(+, [1], [2]) * (B + C)) * sin(number(+, [1], [2]) * (-1 * B + C)), [], D, D, []).
+
+user_rule(cosdiff, A, -1 * cos(B) + cos(C) => 2 * sin(number(+, [1], [2]) * (B + C)) * sin(number(+, [1], [2]) * (-1 * C + B)), [], D, D, []).
+
+:- dynamic known_method_schema/9.
+
+known_method_schema(A, B, C, method(auto2), schema([[conditions(method(auto1), sat([rhs_zero(D), is_sum(E, D)], E, D), unsat([common_subterms(F, G, H)], F, G)), conditions('Prepare for Factorization', sat([rhs_zero(I)], E, I), unsat([is_product(F, J)], F, J)), conditions('Factorization', sat([is_product(F, K), mult_occ(F, K), rhs_zero(K)], F, K), unsat([finish], L, M))], [conditions('Isolation', sat([single_occ(F, N)], F, N), unsat([finish], O, P))], [conditions('Isolation', sat([single_occ(F, Q)], F, Q), unsat([finish], R, S))]], cos(x) + number(+, [3], [2]) * cos(2 * x) + cos(3 * x) = 0, x), 'Factorization', use_schema(A, B, C, 'Factorization', cos(x) + number(+, [3], [2]) * cos(2 * x) + cos(3 * x) = 0, [[conditions(method(auto1), sat([rhs_zero(D), is_sum(E, D)], E, D), unsat([common_subterms(F, G, H)], F, G)), conditions('Prepare for Factorization', sat([rhs_zero(I)], E, I), unsat([is_product(F, J)], F, J)), conditions('Factorization', sat([is_product(F, K), mult_occ(F, K), rhs_zero(K)], F, K), unsat([finish], L, M))], [conditions('Isolation', sat([single_occ(F, N)], F, N), unsat([finish], O, P))], [conditions('Isolation', sat([single_occ(F, Q)], F, Q), unsat([finish], R, S))]], x), [mult_occ(A, B), rhs_zero(B), is_sum(A, B)], [dis_solution(A, C)]).
+
+:- asserta(schema(method(auto2))). 
+
+:- dynamic known_method_auto/7.
+
+:- dynamic auto_rule/2.
+
+known_method_auto(A, B, C, method(auto1), try_auto_method(auto1, A, B, C), [mult_occ(A, B), rhs_zero(B), is_sum(A, B)], [applicable_next_method('Prepare for Factorization', A, C), common_subterms(A, C, D)]).
+
+auto_rule(auto1,cossum).
+auto_rule(auto1,sinsum).
+auto_rule(auto1,sindiff).
+auto_rule(auto1,cosdiff).
+
+:- flag(method(method(auto2)),_,on).
+
+:- asserta(method(method(auto2))).
+
+:- flag(method(method(auto1)),_,on).
+
+:- asserta(method(method(auto1))).
+
+:- mod_abolish(must_satisfy,2).
+
+:- dynamic must_satisfy/2.
+
+must_satisfy(common_subterms(A,B,C),[method(auto1)]).
+must_satisfy(less_occ(A,B,C),['Collection','Prepare for Factorization']).
+must_satisfy(identical_subterms(A,B,C),['Homogenization']).
+must_satisfy(closer(A,B,C),['Attraction']).
+must_satisfy(is_product(A,B),['Prepare for Factorization']).
+must_satisfy(rhs_zero(A),['Prepare for Factorization']).
+must_satisfy(mult_occ(A,B),['Attraction','Logarithmic Method']).
+
+:- style_check(all).

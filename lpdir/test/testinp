@@ -1,0 +1,126 @@
+wep.
+trig1.
+y
+cos(A)+cos(B)=>2*cos((A+B)/2)*cos((A-B)/2).
+
+
+cossum.
+n.
+add new rule.
+auto1.
+n
+sin(x)+sin(3*x) + 2*sin(2*x) = 0.
+2*sin(2*x)*cos(x) + 2*sin(2*x) = 0.
+sin(A)+sin(B)=>2*sin((A+B)/2)*cos((A-B)/2).
+
+
+sinsum.
+add new rule.
+auto1.
+n
+sin(3*x)-sin(x) + 2*cos(2*x) = 0.
+2*sin(x)*cos(2*x) + 2*cos(2*x) = 0.
+sin(A)-sin(B)=>2*cos((A+B)/2)*sin((A-B)/2).
+
+
+sindiff.
+add new rule.
+auto1.
+n
+cos(x)-cos(3*x) + 2*sin(2*x) = 0.
+2*sin(2*x)*sin(x) + 2*sin(2*x) = 0.
+cos(A)-cos(B)=>2*sin((A+B)/2)*sin((B-A)/2).
+
+
+cosdiff
+writeall(dump2).
+[we].
+example1.
+y
+A*cos(X)+B*sin(X)=>(A^2 + B^2)^(1/2)*sin(X+arctan(B/A)).
+
+
+n
+add new rule.
+'Collection'.
+cos(x)+ 2*sin(x) = 1.
+5^(1/2)*sin(x+arctan(2)) = 1.
+cos(X)+B*sin(X)=>(1 + B^2)^(1/2)*sin(X+arctan(B)).
+
+
+add new rule.
+'Collection'.
+2*cos(x) + sin(x) = 1.
+5^(1/2)*sin(x+arctan(1/2)) = 1.
+A*cos(X)+ sin(X)=>(A^2 + 1)^(1/2)*sin(X+arctan(1/A)).
+
+
+add new rule.
+'Collection'.
+cos(x) + sin(x) = 1.
+2^(1/2)*sin(x+arctan(1)) = 1.
+cos(X)+sin(X) => 2^(1/2)*sin(X+arctan(1)).
+
+
+writeall(dump3).
+trig3.
+y
+sin(A)+cos(A)=0=>tan(A) = -1.
+
+
+tanrule.
+n
+add new rule.
+auto5.
+y
+sinsum.
+add new rule.
+auto5.
+y
+sindiff.
+add new rule.
+auto5.
+y
+cosdiff.
+writeall(dump4).
+trig2.
+y
+sin(A)=>2*sin(A/2)*cos(A/2).
+
+
+sinhalf.
+n
+add new rule.
+auto7.
+y.
+cosdiff.
+add new rule.
+auto7.
+y.
+sindiff.
+add new rule.
+auto7.
+y.
+sinsum.
+writeall(dump5).
+usefulprob.
+trig4.
+writeall(dump6).
+halt.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

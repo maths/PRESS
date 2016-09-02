@@ -1,0 +1,50 @@
+%198x press-handout.pdf.
+
+
+
+Solving log(2, x) + 4 * log(x, 2) = 5 for x
+
+Rewriting equation in terms of log(2, x)
+gives log(2, x) + 4 * log(2, x) ^ -1 = 5
+
+Substituting   x1 for log(2, x) gives
+ 4 * x1 ^ -1 + x1 = 5
+
+Multiply through by x1 to get 
+
+x1 ^ 2 + -5 * x1 + 4 = 0
+
+Using quadratic equation formula
+
+Solutions are x1 = 4 and x1 = 1
+
+Applying substitution 
+    x1 = log(2, x)
+
+   to    : 
+    x1 = 4 # x1 = 1
+
+   gives : 
+    log(2, x) = 4 # log(2, x) = 1
+
+
+
+Solving disjunct log(2, x) = 4
+
+    x = 16
+     (by Isolation)
+
+
+Solving disjunct log(2, x) = 1
+
+    x = 2
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 16
+    X2 =  x = 2
+
+true.
+

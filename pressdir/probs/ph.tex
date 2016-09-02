@@ -1,0 +1,76 @@
+\documentstyle[note]{article}
+\pagestyle{empty}
+\begin{document}
+\vspace*{2.15in}
+\begin{center}
+\begin{large}
+{\bf PRESS}: {\bf Pr}olog {\bf E}quation {\bf S}olving {\bf S}ystem
+\end{large}
+\end{center}
+PRESS was, at the time it was written, the first really large-scale
+program written in Prolog. The aim of the PRESS project was not so much
+to build a powerful equation-solving system (although it would get
+an `A' at `A' Level Mathematics!) but to test out the ideas which
+people in the Artificial Intelligence Department at Edinburgh had
+about how to do theorem proving in general.
+For example, how does a High School student ``know'' how to solve
+\[ 	log_2 x + 4.log_x 2 = 5 \]
+
+Here is PRESS's proof: note how ``human-like'' it is.
+
+\begin{footnotesize}
+
+\begin{verbatim}
+This problem comes from the London 1978 A level exam.
+We are asked to find the value(s) of for which
+	log(2,x) + 4.log(x,2) = 5.
+
+Solving log(2, x) + 4 * log(x, 2) = 5 for x
+
+Rewriting equation in terms of log(2, x)
+gives log(2, x) + 4 * log(2, x) ^ -1 = 5
+
+Substituting   x1 for log(2, x) gives
+ 4 * x1 ^ -1 + x1 = 5
+
+Multiply through by x1 to get 
+
+x1 ^ 2 + -5 * x1 + 4 = 0
+
+Using quadratic equation formula
+
+Solutions are x1 = 4 and x1 = 1
+
+Applying substitution 
+    x1 = log(2, x)
+
+   to    : 
+    x1 = 4 # x1 = 1
+
+   gives : 
+    log(2, x) = 4 # log(2, x) = 1
+
+Solving disjunct log(2, x) = 4
+
+    x = 16
+     (by Isolation)
+
+Solving disjunct log(2, x) = 1
+
+    x = 2
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 16
+    X2 =  x = 2
+
+\end{verbatim}
+
+\end{footnotesize}
+
+\bibliography{/usr/local/lib/tex.biblio/papers}
+\bibliographystyle{harvardbib}
+
+\end{document}

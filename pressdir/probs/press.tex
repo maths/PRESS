@@ -1,0 +1,73 @@
+\documentstyle[note,harvard]{article}
+\def\id#1{\hbox{\it#1}}
+\parindent=0pt
+\parskip= .35\baselineskip plus .0833333\baselineskip 
+                          minus .0833333\baselineskip
+\pagestyle{empty}
+\begin{document}
+
+\section*{ PRESS: PRolog Equation Solving System}
+
+\subsection*{AUTHORS:}
+ Leon Sterling, Alan Bundy, Lawrence Byrd, Richard O'Keefe, and
+	 Bernard Silver
+
+\subsection*{What is PRESS? }
+
+Humans are surprisingly good at solving equations! Faced with a plethora
+of rules they usually home on the most useful one. They may
+be unaware of the wealth of knowledge they bring to bear on this
+problem. For example, could you explain why ``addding 4 to both sides''
+makes sense in
+\[ x - 4 = 0 \]
+but not in
+\[ x^2 +3x - 4 = 0? \]
+
+PRESS was developed in order to try out ideas about
+the kind of knowledge that mathematicians use to guide proofs. Rather
+than trying rules of inference at random, they use a deeper analysis
+to reduce the number of possible rules. As a result, the output which
+PRESS produces is quite human-like. The test bed for PRESS was 172
+examination questions taken from `A' level and Higher papers, of which
+PRESS was successful in 85\% of them - enough to get a Grade `A'!
+
+PRESS works by categorizing the rules of algebra according to their
+effects. For example, ``Isolation Axioms'' work when there is only
+one occurence of the unknown in the equation (e.g. 3 + 2x = 11)
+and their effect is to isolate the unknown on one side of the equation.
+The ``Collection'' Method works to reduce the number of occurences
+of the unknown. ``Attraction'' does not reduce the number of occurences,
+but brings them ``closer together'' making it more likely that they
+can then be ``collected''. More information can be found in the PRESS
+literature: a good starting point is given below.
+\subsection*{How to use PRESS }
+The top-level predicate is solve/1, solve/2, or solve/3:
+\begin{verbatim} 
+ solve(Expression)                e.g. solve(1-3*cos(x)^2=5*sin(x)).
+ solve(Expression,Unknown)        e.g. solve(1-3*cos(x)^2=5*sin(x),x).
+ solve(Expression,Unknown,Answer) e.g. solve(1-3*cos(x)^2=5*sin(x),x,X).
+\end{verbatim}
+
+For simultaneous equations it is simsolve, e.g.
+\begin{verbatim}
+simsolve(x+y=5 & 2*x+y^2=18). 
+\end{verbatim}	
+
+
+\subsection*{Associated literature:}
+ A good introduction is Sterling et al.(1982):
+		       ``Solving Symbolic Equations with PRESS'',
+		       DAI Research Paper 171.
+
+\subsubsection*{CURRENT STATUS:}
+  PRESS is freely available for academic use, but is
+  		 unsupported. It is available via anonymous ftp from
+		 dream.dai.ed.ac.uk (192.41.111.169) in the directory
+		 pub/press - filename press.tar.Z. \\
+CONTACT: Raul Monroy (raulm@aisb)
+
+
+
+
+
+\end{document}

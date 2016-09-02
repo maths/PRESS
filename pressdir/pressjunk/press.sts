@@ -1,0 +1,99 @@
+%   File   : PRESS.STS
+%   Author : Bernard Silver
+%   Updated: 28 February 1984
+%   Purpose: Clause count for PRESS
+
+                UTIL
+                
+util:util.ops           0 clauses   0 predicates.
+util:arith.ops          0 clauses   0 predicates.
+util:files.pl           7 clauses   6 predicates.
+util:writef.pl         80 clauses  25 predicates.
+util:trace_press.pl          11 clauses   7 predicates.
+util:readin.pl         19 clauses   9 predicates.
+util:listut.pl         37 clauses  20 predicates.
+util:setutl.pl         38 clauses  17 predicates.
+util:bagutl.pl         61 clauses  30 predicates.
+util:applic.pl         23 clauses   9 predicates.
+util:flagro.pl          3 clauses   3 predicates.
+util:struct.pl         35 clauses  16 predicates.
+util:metutl.pl         42 clauses  21 predicates.
+util:gensym.pl          4 clauses   3 predicates.
+util:long.pl          260 clauses  83 predicates.
+util:tidy.pl          110 clauses  23 predicates.
+util:edit.pl           15 clauses   9 predicates.
+util:invoca.pl         20 clauses  12 predicates.
+util:imisce.pl         13 clauses   8 predicates.
+=================================================
+Total                 779 clauses 302 predicates.
+=================================================
+
+                PRESS
+
+press:chunk.            8 clauses   5 predicates.
+press:collec.          28 clauses  13 predicates.
+press:attrac.          10 clauses   5 predicates.
+press:simp.ax          32 clauses   1 predicates.
+press:match.           26 clauses   9 predicates.
+press:int.            152 clauses  51 predicates.
+press:diff.            28 clauses   4 predicates.
+press:polpak.          94 clauses  41 predicates.
+press:poltid.           8 clauses   5 predicates.
+press:odds.            19 clauses  13 predicates.
+press:weaknf.           8 clauses   3 predicates.
+press:words.           17 clauses   7 predicates.
+press:gportr.          28 clauses   9 predicates.
+press:misc.            56 clauses  25 predicates.
+press:solve.           30 clauses  13 predicates.
+press:simeq.           12 clauses   8 predicates.
+press:sim.             45 clauses  22 predicates.
+press:ineq.            15 clauses  10 predicates.
+press:isolat.          19 clauses   7 predicates.
+press:factor.           4 clauses   2 predicates.
+press:poly.            39 clauses  18 predicates.
+press:trig.fac         96 clauses  36 predicates.
+press:nas1.            14 clauses   3 predicates.
+press:homog.top        44 clauses  19 predicates.
+press:homog.trg       152 clauses  58 predicates.
+press:log.             28 clauses  15 predicates.
+press:nasty.          159 clauses  69 predicates.
+press:isolat.ax        63 clauses   1 predicates.
+press:ineqis.ax        28 clauses   0 predicates.
+press:collec.ax        17 clauses   1 predicates.
+press:attrac.ax        12 clauses   1 predicates.
+press:homog.rew        64 clauses   4 predicates.
+press:facts.           10 clauses   7 predicates.
+press:init.             8 clauses   8 predicates.
+press:prover.          32 clauses  10 predicates.
+press:manip.            6 clauses   4 predicates.
+press:homog.msc        80 clauses  37 predicates.
+press:runex.           16 clauses  13 predicates.
+press:demo.            13 clauses  10 predicates.
+press:facile.           7 clauses   5 predicates.
+press:qik.              7 clauses   7 predicates.
+press:top.pl           13 clauses   0 predicates.
+=================================================
+Total         1549 clauses 581 predicates.
+=================================================
+
+=================================================
+Grand total:         2328 clauses 883 predicates.
+=================================================
+
+
+                        PROBLEM SCORES (See PRESS:SCORE for more information)
+
+            Single equations            Sim. eqn.               Total
+
+            92 out of 103               14 out of 19            106 out of 122
+
+                89.3%                     73.68%                  86.88%
+
+
+
+                        SIZE
+
+PRESS occupies 204P + 59P at start (= 130K), rising to 330P + 59P (= 195K)
+The PROLOG system alone occupies 15P + 59P (37K) at start.
+
+

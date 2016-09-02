@@ -1,0 +1,136 @@
+			TO INSTALL PRESS
+
+1) Move all the files to an appropriate directory.  From the tape,
+   the files are in nine different directories, namely:  /usr/bs/util
+   /usr/bs/pressdir, /usr/bs/pressdir/axioms, /usr/bs/pressdir/methods,
+   /usr/bs/pressdir/misc, /usr/bs/pressdir/package, 
+   /usr/bs/pressdir/pressjunk, /usr/bs/pressdir/probs and
+   /usr/bs/pressdir/toplevel.
+  
+   All files can be in directory if necessary, but the division into 
+   several is more logical.  Make a special note of where you place
+   the file /usr/bs/pressdir/pressjunk/filin
+
+2)  Move (cd) to the directory that now contains the filin file.
+
+3) Then, edit filin  as follows:
+
+ a) Change the library_directory/1 clauses to point to your new directories.
+    These are the directories that will be searched during the loading 
+    process (and afterwards by press.)  Ensure that
+    the quintus entries are also included.
+
+ b)  Change save_file/1 to indicate where you want the saved press state to 
+     go, if /usr/local/bin/press is not suitable.
+
+
+4) Staying in the same directory, type "prolog < pload".  This 
+   a) Compiles the filin file
+   b) issues the ss command which saves the program state and creates
+      suitable headings,
+   c) and exits.
+
+This places the saved state press into the file specified by save_file/1
+in filin.  The default is /usr/local/bin/press
+
+			This is a listing of all the PRESS files
+
+
+
+/usr/bs/pressdir/README
+
+/usr/bs/pressdir/axioms/attrac.ax
+/usr/bs/pressdir/axioms/collec.ax
+/usr/bs/pressdir/axioms/facts
+/usr/bs/pressdir/axioms/homog.rew
+/usr/bs/pressdir/axioms/ineqis.ax
+/usr/bs/pressdir/axioms/init
+/usr/bs/pressdir/axioms/init.mec
+/usr/bs/pressdir/axioms/isolat.ax
+/usr/bs/pressdir/axioms/simp.ax
+/usr/bs/pressdir/axioms/trig.ax
+
+/usr/bs/pressdir/methods/attrac
+/usr/bs/pressdir/methods/chunk
+/usr/bs/pressdir/methods/collec
+/usr/bs/pressdir/methods/factor
+/usr/bs/pressdir/methods/homog.top
+/usr/bs/pressdir/methods/homog.trg
+/usr/bs/pressdir/methods/isolat
+/usr/bs/pressdir/methods/log
+/usr/bs/pressdir/methods/nas1
+/usr/bs/pressdir/methods/nasty
+/usr/bs/pressdir/methods/poly
+/usr/bs/pressdir/methods/trig.fac
+
+/usr/bs/pressdir/misc/fld
+/usr/bs/pressdir/misc/freeof
+/usr/bs/pressdir/misc/gportr
+/usr/bs/pressdir/misc/homog.msc
+/usr/bs/pressdir/misc/misc
+/usr/bs/pressdir/misc/words
+
+/usr/bs/pressdir/package/diff
+/usr/bs/pressdir/package/int
+/usr/bs/pressdir/package/manip
+/usr/bs/pressdir/package/match
+/usr/bs/pressdir/package/odds
+/usr/bs/pressdir/package/polpak
+/usr/bs/pressdir/package/poltid
+/usr/bs/pressdir/package/polyis
+/usr/bs/pressdir/package/prover
+/usr/bs/pressdir/package/real.pl
+/usr/bs/pressdir/package/sprint
+/usr/bs/pressdir/package/weaknf
+
+
+/usr/bs/pressdir/pressjunk/facile
+/usr/bs/pressdir/pressjunk/filin
+/usr/bs/pressdir/pressjunk/fls
+/usr/bs/pressdir/pressjunk/init
+
+/usr/bs/pressdir/pressjunk/pload
+/usr/bs/pressdir/pressjunk/press.ccl
+/usr/bs/pressdir/pressjunk/press.def
+/usr/bs/pressdir/pressjunk/press.ops
+/usr/bs/pressdir/pressjunk/press.sts
+/usr/bs/pressdir/pressjunk/press.sub
+/usr/bs/pressdir/pressjunk/qik
+
+
+/usr/bs/pressdir/probs/demo
+/usr/bs/pressdir/probs/exam
+/usr/bs/pressdir/probs/runex
+
+
+/usr/bs/pressdir/toplevel/ident
+/usr/bs/pressdir/toplevel/ineq
+/usr/bs/pressdir/toplevel/sim
+/usr/bs/pressdir/toplevel/simeq
+/usr/bs/pressdir/toplevel/solve
+
+/usr/bs/util/applic.pl
+/usr/bs/util/arith.ops
+/usr/bs/util/arith.pl
+/usr/bs/util/ask.pl
+/usr/bs/util/bagutl.pl
+/usr/bs/util/betwee.pl
+/usr/bs/util/files.pl
+/usr/bs/util/flagro.pl
+/usr/bs/util/gensym.pl
+/usr/bs/util/getfil.pl
+/usr/bs/util/imisce.pl
+/usr/bs/util/invoca.pl
+/usr/bs/util/listut.pl
+/usr/bs/util/long.pl
+/usr/bs/util/metutl.pl
+/usr/bs/util/occur.pl
+/usr/bs/util/projec.pl
+/usr/bs/util/readin.pl
+/usr/bs/util/setutl.pl
+/usr/bs/util/struct.pl
+/usr/bs/util/tidy.pl
+/usr/bs/util/trace_press.pl
+/usr/bs/util/util.ops
+/usr/bs/util/writef.pl
+

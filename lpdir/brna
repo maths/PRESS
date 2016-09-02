@@ -1,0 +1,127 @@
+%   File   :  /usr/sin/lw/bernard/lpdir/lp.pl
+%   Author : Bernard Silver
+%   Updated: Thu Nov 21 10:40:50 1985
+%   Purpose: This file is used to create the LP system 
+%	     from the bare Prolog.
+
+% Change these entries to reflect your file system setup
+
+library_directory('/usr/local/bin/q1.6/library').
+library_directory('/usr/local/bin/q1.6/tools').
+library_directory('/usr/sin/lw/bernard/lpdir').
+library_directory('/usr/sin/lw/bernard/lpdir/misc').
+library_directory('/usr/sin/lw/bernard/lpdir/test').
+
+ 			% Help Files
+
+helper_file('/usr/sin/lw/bernard/lpdir/misc/lp.hol'). % Helper format
+monitor_help('/usr/sin/lw/bernard/lpdir/lp.hlp'). % Normal format
+
+	% Icon file for sunwindows stuff (see testenv.pl)
+
+icon_file('/usr/sin/lw/bernard/lpdir/lpicon').
+
+	% Where the Save state goes (called by ss/0)
+save_file('/usr/local/bin/lp').
+
+
+		/* LOAD THE LP FILES */
+
+:- no_style_check(single_var),no_style_check(discontiguous).
+
+ :- compile([
+
+	library(utilops),	% General operator declarations
+	library(arithops),	% Arithmetic operator declarations
+	library(ops),		% Operators for LP
+	library(files),		% Manipulate files
+	library(writef),	% Formatted write (writef)
+	library(routin),	% List and set routines
+	library(flagro),	% Flag handling
+	library(struct),	% Structure crunching
+	library(long),		% Rational arithmatic package
+	library(tidy),		% Expression tidy/evaluator
+	library(match),	        % Matcher
+	library(portr),		% Portray Code
+	library(weaknf),	% weak normal forms
+	library(cond),		% precondition definitions
+	library(char),		% Character Input
+	library('simp.ax'),	% Simplification axioms for tidy
+	library(rew),		% Apply rewrite rules
+	library(file),		% Check file names
+	library(comp),		% Stuff to compile
+	library(polpak),	% Bag operations on polynomials
+% Used to be consulted from here on
+	library(misce),		% Miscellaneous
+	library(tl),		% Top level 
+	library(out),		% Output 
+	library(bag),		% Stuff from Bagutl
+	library(conj),		% conjecture new rules
+	library(desc),		% description building
+	library(loop),		% Loop Checker
+	library(sol),		% Solve code
+	library(imeth),		% basic interpreted method defns
+	library(confir),	% confirming conjectures
+	library(flag),		% Flag setting 
+	library(method),	% Description of PRESS methods
+	library(specia),	% Special top level methods
+	library(table),		% Tables and Conditions
+	library(constr),	% Constraint prop
+	library(func),		% Function Checking
+	library(newmet),	% Conjecture new methods
+	library(interp),	% Misc clauses from other PRESS files
+	library(genprb),	% Problem Generator
+	library(nasty),		% Nasty code
+	library(axioms),	% Collection and Attraction axioms
+	library(poly),		% Polynomial methods
+	library(homog),		% Homogenization Code
+	library(log),		% Log Method
+	library(testenv),	% Discover the type of enviroment
+	library(poltid)		% Identify and split polynomials
+]).
+
+
+:- dynamic version_date/2.
+
+% Very ugly way to get the version date
+
+ :-  unix(system('echo -n ''v_d("'' > $HOME/d.tmp;date >> $HOME/d.tmp;echo ''").'' >> $HOME/d.tmp')),
+	open('~/d.tmp',read,Stream),
+	read(Stream,v_d(StringDate)),
+	close(Stream),
+	append(SD,[_],StringDate),
+	!,
+	name(Date,SD),
+	assert(version_date(Date,SD)),
+	unix(system('rm $HOME/d.tmp')).
+
+
+
+:- version('LP Learning PRESS.
+
+Copyright (C) 1985 GTE Labs Waltham MA 
+
+'),
+	version_date(_,SD),
+	append("Version of ",SD,New),
+	name(Message,New),
+	version(Message).
+
+
+ss :- 
+	version_date(Date,_),
+	save_file(Save),
+	save(Save),
+	writef('\n\t\tLP Learning PRESS (%w)\n',[Date]),
+	writef('\n\n\t\tCopyright GTE 1985\n'),
+	writef('\nFor help type "help."\n'),
+	test.
+
+
+
+
+:- style_check(all).
+
+
+
+

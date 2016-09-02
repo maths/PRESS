@@ -1,0 +1,25 @@
+#
+lp < first
+mv t1scr.sts* bigstats
+#cp bigstats   test1sts
+mv t1scr*     test1scr
+lp < second
+mv t2scr.sts* bigstats
+#cp bigstats   test2sts
+mv t2scr*     test2scr
+lp < third
+mv t3scr.sts* bigstats
+#cp bigstats   test3sts
+mv t3scr*    test3scr
+lp < fourth
+mv t4scr.sts* bigstats
+#cp bigstats   test4sts
+mv t4scr*     test4scr
+lp < fifth
+mv t5scr.sts* bigstats
+#cp bigstats   test5sts
+mv t5scr*     test5scr
+lp < sixth
+mv t6scr.sts* bigstats
+#cp bigstats   test6sts
+mv t6scr*     test6scr

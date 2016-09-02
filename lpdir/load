@@ -1,0 +1,7 @@
+%   File   :  /usr/bs/lpdir/load
+%   Author : Bernard Silver
+%   Updated: Wed Oct 30 11:07:39 1985
+%   Purpose: Load and save file for LP
+[lp].
+ss.
+halt.

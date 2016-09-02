@@ -1,0 +1,54 @@
+%   File   :  /usr/bs/lpdir/simp.ax
+%   Author : Bernard Silver
+%   Updated: Tue Oct 15 11:53:48 1985
+%   Purpose:  Simplification axioms for TIDY
+
+/*
+% PUBLIC 
+:- public
+	negative_angle/2,
+	simplify_axiom/2.
+
+% MODES
+
+:- mode 
+	negative_angle(+,-),
+	simplify_axiom(+,-).
+*/
+simplify_axiom(U*U^ -1,1).
+simplify_axiom(U^ -1*U,1).
+
+% Logs
+simplify_axiom(log(U,U^V),V).
+simplify_axiom(log(_,1),0).
+simplify_axiom(U^log(U,V),V).
+simplify_axiom(log(A,A),1) :- A\==1.
+
+% Common trig cases
+simplify_axiom(sin(arcsin(X)),X).
+
+simplify_axiom(cos(arccos(X)),X).
+
+simplify_axiom(sin(arccos(X)),(1-X^2)^(1/2)#(1-X^2)^(1/2)*(-1)).
+
+simplify_axiom(cos(arcsin(X)),(1-X^2)^(1/2)#(1-X^2)^(1/2)*(-1)).
+
+
+simplify_axiom(arcsin(cos(X)),90-X).
+
+simplify_axiom(arccos(sin(X)),90-X).
+
+simplify_axiom(sin(X),sin(X1)* -1) :- negative_angle(X,X1),!.
+
+simplify_axiom(cos(X),cos(X1)) :- negative_angle(X,X1),!.
+
+negative_angle(-X,X) :- !.
+negative_angle(X,X1) :-
+	match(X,A*B),
+	ok_number(A),
+	!,
+	eval(A<0),
+	eval(-A,A1),
+	tidy(A1*B,X1),
+	!.
+

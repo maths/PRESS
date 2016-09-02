@@ -1,0 +1,419 @@
+%   File   : LPEXAM
+%   Author : Bernard Silver
+%   Updated: 22 September 1984
+%   Purpose: Questions for LP, compiles LPEXAM.RUN to run them.
+%   Questions from PRESS:EXAM
+
+:- dynamic q/3.   % Used by clause
+
+
+		 % AEB exam questions   
+
+ %  June 1971  Paper2    			%solved
+q(Ans,1,Time) :- solve(sec(2*x) + tan(2*x) = 3,x,Ans,Time).    
+ % Show first that sec(2x)+tan(2x)=(1+tan(x))/(1-tan(x)) 
+
+q(Ans,2,Time) :- solve(3*sech(x)^2 + 4*tanh(x) + 1 = 0,x,Ans,Time).	%solved        
+
+ %  Nov 1971 Paper1 
+
+q(Ans,3,Time) :- solve(4^(2*x+1) * 5^(x-2) = 6^(1-x),x,Ans,Time).	 	%solved
+
+q(Ans,4,Time) :- solve(1 - 3*cos(x)^2 = 5*sin(x),x,Ans,Time).     	%solved
+
+q(Ans,5,Time) :- solve(4^x - 2^(x+1) - 3 = 0,x,Ans,Time).			%solved
+
+ % Paper2 
+
+q(Ans,6,Time) :- solve(cos(x) + 2*cos(2*x) + cos(3*x) = 0,x,Ans,Time).	%solved
+
+q(Ans,7,Time) :- solve(2*sin(x) + cos(x) = 1,x,Ans,Time).			%solved
+
+q(Ans,8,Time) :- solve(2*sin(x) + cos(2*x) = 1,x,Ans,Time).		%solved
+
+ % Paper2 
+
+q(Ans,9,Time) :- solve(25*cos(x)^2 - 4*sin(x)^2 - 20*cos(x) - 8*sin(x) = 0,x,Ans,Time).
+ % First show that left-hand side can be expressed as the difference of
+ % two squares  
+
+ % June 1973 Paper1 
+
+q(Ans,10,Time) :- solve(9^(3*x^2) = 27^(15-x),x,Ans,Time).		%solved
+
+q(Ans,11,Time) :- solve(log(e,2*x-5) + log(e,x-3) = 2*log(e,2*x-1) - log(e,2),x,Ans,Time). %solved
+
+q(Ans,12,Time) :- solve(cos(6*x) + sin(6*x) + cos(4*x) + sin(4*x) = 0,x,Ans,Time). %solved
+
+q(Ans,13,Time) :- solve(cos(2*x) + 3*sin(x) + 1 = 0,x,Ans,Time).		%solved
+
+ % Paper2 
+
+q(Ans,14,Time) :- solve((cot(2*x) + cosec(2*x))^2 = sec(2*x),x,Ans,Time).
+ % Show first that (cot(x) + cosec(x))^2 = (1 + cos(x))/(1 - cos(x)) 
+
+q(Ans,15,Time) :- solve(sin(2*x) + sin(3*x) + sin(5*x) = 0,x,Ans,Time).
+
+ % June 1974 Paper1 
+
+q(Ans,16,Time) :- solve(3*sin(x) + 4*cos(x) = 1,x,Ans,Time).		%solved
+
+ % Nov 1974 Paper1 
+
+q(Ans,17,Time) :- solve(sin(150-x) = 2*sin(x-30),x,Ans,Time).		%solved
+
+
+q(Ans,18,Time) :- solve(5*cos(2*x) - 2*sin(2*x) =  2,x,Ans,Time).		%solved
+
+
+ %      June 1975 Paper1 
+
+q(Ans,19,Time) :- solve(3*cos(x)^2 + 5*sin(x) - 1 = 0,x,Ans,Time).		%solved
+
+ % 	Paper2	
+
+q(Ans,20,Time) :- solve((1-tan(x))*(1+sin(2*x)) = 1 + tan(x),x,Ans,Time).       	%solved
+
+ % 	Nov 1975 Paper1 
+
+q(Ans,21,Time) :- solve(log(x,8) + log(8,x) = 13/6,x,Ans,Time).		%solved
+
+ % Paper2 
+
+q(Ans,22,Time) :- solve(sin(x) - sin(4*x) + sin(7*x) = 0,x,Ans,Time). %solved
+
+q(Ans,23,Time) :-  solve(sin(3*x) = 2*cos(2*x),x,Ans,Time).
+ % Verify that x=30 is a solution.  Find general solution 
+
+ % June 1976 Paper1 
+
+q(Ans,24,Time) :-  solve(7*sin(x) - 24*cos(x) = 15,x,Ans,Time).		%solved
+
+ % Paper2 
+
+q(Ans,25,Time) :-  solve(cos(x) + cos(3*x) + cos(5*x) = 0,x,Ans,Time).		%solved
+
+ % Nov 1976 Paper1  
+
+q(Ans,26,Time) :-  solve(2*sec(x) + 3*sin(x) = 4*cos(x),x,Ans,Time).	%solved
+
+ % Paper2 
+
+q(Ans,27,Time) :-  solve(x^3 - 9*x + 4 = 0,x,Ans,Time).
+ % q(Ans,35) gives substitution x = 2*3^(1/2)*cos(y)  
+
+ % June 1978 S paper 
+ 
+q(Ans,28,Time) :-  solve(cos(5*x) = cos(2*x),x,Ans,Time). %solved
+
+ 		 % London questions   
+
+ % Jan 1976 Paper1  
+
+q(Ans,29,Time) :-  solve(10^(x - 3) = 2^(10 + x),x,Ans,Time).		%solved
+
+q(Ans,30,Time) :-  solve(cot(2*x) = 2 + cot(x),x,Ans,Time).		%solved
+
+q(Ans,31,Time) :-  solve(cos(3*x) - 3*cos(x) = cos(2*x) + 1,x,Ans,Time).		%solved
+
+ % Paper3 
+
+q(Ans,32,Time) :-  solve(9*cosh(x) - 6*sinh(x) = 7,x,Ans,Time).		%solved
+
+ % June 1976 Paper1 
+
+q(Ans,33,Time) :-  solve(sin(x) + sin(2*x) = sin(3*x),x,Ans,Time).		%solved
+
+q(Ans,34,Time) :-  solve(2*tan(x) + sec(2*x) = 2*tan(2*x),x,Ans,Time).
+ % Whole question 
+
+
+q(Ans,35,Time) :-  solve(log(x,45) + 4*log(x,2) - (1/2)*log(x,81) - log(x,10) = 3/2,x,Ans,Time).
+		%solved
+ % Jan 1977 Paper1  
+
+q(Ans,36,Time) :-  solve(2^(2*x) - 5*2^(x + 1) + 16 = 0,x,Ans,Time).		%solved
+
+q(Ans,37,Time) :-  solve(8*cos(x) - 15*sin(x) = 3,x,Ans,Time).		%solved
+
+ % June 1977 Paper1  
+
+q(Ans,38,Time) :-  solve(e^(3*x) - 2*e^x - 3*e^(- x) = 0,x,Ans,Time).		%solved
+
+q(Ans,39,Time) :-  solve(2*sin(x) + cos(x) + 2 = 0,x,Ans,Time).		%solved
+
+ % Paper2 
+
+q(Ans,40,Time) :-  solve(7*sin(x)^2 - 5*sin(x) + cos(x)^2 = 0,x,Ans,Time).		%solved
+
+q(Ans,41,Time) :-  solve(8*sin(x) + 15*cos(x) = 17/2,x,Ans,Time).		%solved
+
+ % Special Paper  
+
+q(Ans,42,Time) :-  solve(x^4 - 7*x^3 + 14*x^2 - 7*x + 1 = 0,x,Ans,Time).		%solved
+
+ % Jan 1978 Paper1  
+
+q(Ans,43,Time) :-  solve(log(2,x) + 4*log(x,2) = 5,x,Ans,Time).		%solved
+ % Whole question 
+
+ % Paper2 
+
+ % June 1978 Paper2 
+
+q(Ans,44,Time) :-  solve(5*cosh(x) - 3*sinh(x) = 5,x,Ans,Time).		%solved
+
+ % Jan 1979 Paper1 
+
+q(Ans,45,Time) :-  solve(3*cot(2*x) + 7*tan(x) = 5*cosec(2*x),x,Ans,Time).
+
+ % Paper2 
+
+q(Ans,46,Time) :-  solve(sin(2*x) = sin(x),x,Ans,Time).		%solved
+ % Whole question 
+
+ % June 1979 Paper1 
+
+q(Ans,47,Time) :-  solve(sin(x) - 7*cos(x) + 5 = 0,x,Ans,Time).		%solved
+ % q(Ans,20) suggests tan(x/2) method 
+
+ % Paper2 
+
+q(Ans,48,Time) :-  solve(cos(3*x) + sin(3*x) = 1,x,Ans,Time).		%solved
+
+ % June 1980 Paper1 
+
+q(Ans,49,Time) :- solve(sin(3*x) = sin(x)^2,x,Ans,Time). %solved
+ % First expand sin(3*x) in the normal way  
+
+q(Ans,50,Time) :- solve(4*cos(x) + sin(x) = 1,x,Ans,Time).  %solved
+ % Must use  tan(x/2) method  
+
+ % Paper2 
+
+q(Ans,51,Time) :- solve(4^(3+x)/8^(10*x) = 2^(10 - 2*x)/64^(3*x),x,Ans,Time). %solved
+
+q(Ans,52,Time) :- solve(log(2,(x+4)) = 2 - log(2,x),x,Ans,Time). %solved
+
+q(Ans,53,Time) :- solve(6^(1/2)*cos(x) - 2^(1/2)*sin(x) = 2,x,Ans,Time). %solved
+ % given that a.cos(x) - b.sin(x) = 2.cos(x+pi/6)  
+
+ % Special Paper 
+q(Ans,54,Time) :- solve(2*cosh(2*x) + sinh(x) = 2,x,Ans,Time). %solved
+
+ % Jan 1981 Paper 2 
+
+q(Ans,55,Time) :- solve(sin(x) = cos(a),x,Ans,Time).		%solved
+ % Solve for x, x and a are both in degrees 
+
+ % June 1981  Paper1 
+
+q(Ans,56,Time) :- solve(e ^ (log(e,x)) + log(e,e^x) = 8,x,Ans,Time). %solved
+
+ % Paper2 
+
+q(Ans,57,Time) :- solve(sin(2*x) + sin(x) = 0,x,Ans,Time). %solved
+
+q(Ans,58,Time) :- solve(2*cosh(x) - 2*sinh(x) = 3,x,Ans,Time). %solved
+
+q(Ans,59,Time) :- solve(2^(2/x) = 32,x,Ans,Time). %solved
+
+q(Ans,60,Time) :- solve(log(x,2)*log(x,3) = 5,x,Ans,Time). %solved
+
+q(Ans,61,Time) :- solve(x^3 - 2*x^2 - 4*x + 8 = 0,x,Ans,Time). %solved
+ % Theory of equations type question.
+ % First we must find a relation between b,c and d which
+ % holds when the roots of x^3 + b.x^2 + c.x + d = 0 are in G.P.
+ % Then we solve the equation above and verify that the roots are in
+ % G.P.  Note we do not prove that this relation holds implies
+ % roots in G.P. 
+
+q(Ans,62,Time) :- solve(4*x^3 - 24*x^2 + 23*x + 18 = 0,x,Ans,Time). %solved
+ % Given that roots are in A.P.  
+ % Special Paper 
+
+q(Ans,63,Time) :- solve(sin(8*x)^2 - sin(7*x)^2 = sin(x)^2,x,Ans,Time).
+
+ % Jan 1983 Paper 2
+
+q(Ans,64,Time) :- solve(sin(x) - cos(x) = 1,x,Ans,Time).  % solved
+
+ % June 1983 Paper 2
+
+q(Ans,65,Time) :- solve(cos(2*x) + 1 = sin(2*x),x,Ans,Time). %solved
+
+ % 		Oxford Board       
+
+ % Additional Maths 
+
+ % 1976 Paper2  
+
+ % Summer 1977 Paper1 
+
+q(Ans,66,Time) :-  solve(8*cos(x) - sin(x) = 4,x,Ans,Time).		%solved
+
+ % Paper2 
+
+ % Autumn 1977 Paper2 
+
+q(Ans,67,Time) :-  solve(2*sin(x)^2 - 1 = (1 + cos(x))^2,x,Ans,Time).		%solved
+
+q(Ans,68,Time) :-  solve(sec(x) - 1/sec(x) = sin(x),x,Ans,Time).		%solved
+
+ % Summer 1978 Paper1 
+
+q(Ans,69,Time) :-  solve(3*sin(x)^2  - cos(x) - 1 = 0,x,Ans,Time).		%solved
+
+ % Paper2 
+
+q(Ans,70,Time) :-  solve(4*cot(2*x)*cosec(2*x) + sec(x)^2*cosec(x)^2 = 8/3,x,Ans,Time). 
+ % The solver was asked to show first:
+ % a) cosec(x)^2 + sec(x)^2 = sec(x)^2*cosec(x)^2,
+ % b) cosec(x)^2 - sec(x)^2 = 4*cot(2*x)*cosec(2*x)     
+
+ % Autumn 1978 Paper1 
+
+q(Ans,71,Time) :-  solve(3*tan(3*x) - tan(x) + 2 = 0,x,Ans,Time). 		%solved
+ % Show first that tan(3*x) =  (3*tan(x) - tan(x)^3)/(1 - 3*tan(x)^2)  
+
+ % Summer 1979 Paper2 
+
+q(Ans,72,Time) :-  solve(sin(3*x) = 2*sin(x),x,Ans,Time). 		%solved
+
+q(Ans,73,Time) :-  solve(sin(3*x) = 4*sin(x),x,Ans,Time). 		%solved
+
+ % A level 
+
+
+ % Summer 1979 Paper1 
+
+q(Ans,74,Time) :-  solve(4*cos(x) + 3*sin(x) = 2,x,Ans,Time). 		%solved
+
+ % Paper2 
+
+q(Ans,75,Time) :-  solve(x^4 - 6*x^3 - 7*x^2 + 36*x + 36 = 0,x,Ans,Time).		%solved
+
+	 % London Syllabus D A level 
+
+ % Jan 1978 Paper2 
+
+q(Ans,76,Time) :- solve(150*cos(x) + 80*sin(x) = 51,x,Ans,Time).		%solved
+
+ % June 1978 Paper2 
+q(Ans,77,Time) :- solve(2*e^x - 2*e^(- x) = 3,x,Ans,Time).		%solved
+
+q(Ans,78,Time) :- solve(3*cos(x) + 2*sec(x) + 5 = 0,x,Ans,Time).		%solved
+ % Question asks for values of cos(x) and tan(x)^2,rather than x 
+
+q(Ans,79,Time) :- solve(sin(x) + 7*cos(x) = 5,x,Ans,Time).		%solved
+ % Questions 3 and 4 make one complete question 
+
+ % Special Paper 
+
+q(Ans,80,Time) :- solve(4*tan(2*x) + 3*cot(x)*sec(x)^2 = 0,x,Ans,Time).   %solved
+
+ % Jan 1979 Paper2 
+
+q(Ans,81,Time) :- solve(sin(2*x) = cos(x),x,Ans,Time).		%solved
+
+ % June 1979 Paper2 
+
+q(Ans,82,Time) :- solve(sin(5*x) + sin(3*x) = 0,x,Ans,Time).		%solved
+
+q(Ans,83,Time) :- solve(cos(x) + cos(x + a) + cos(x + 2*a) = 1 + 2*cos(a),x,Ans,Time).
+ % Find the smallest positive x,given that 0 < a < 90 
+
+q(Ans,84,Time) :- solve(sin(30 + x) = cos(45 + x),x,Ans,Time). %solved
+
+ % Special Paper 
+
+q(Ans,85,Time) :- solve(x^3 - 3*x^2 - 3*x + 1 = 0,x,Ans,Time).		%solved
+ % First show tan(3x) = (3tan(x) - tan(x)^3)/(1 - 3tan(x)^2) and then deduce
+ % that roots of above equation are tan(15),tan(75) and tan(135) 
+
+ % Jan 1980
+
+ % Paper 1
+
+q(Ans,86,Time) :- solve(sin(3*x) - sin(x) = cos(2*x),x,Ans,Time).  %solved
+
+q(Ans,87,Time) :- solve(6*sin(x) + 8*cos(x) = 5,x,Ans,Time).	%solved
+
+ % June 1980
+
+ % Paper 2
+
+q(Ans,88,Time) :- solve(3*cos(x) + 4*sin(x) = (5/2)*(3)^(1/2),x,Ans,Time). %solved
+
+ % Special Paper
+
+ % Jan 1981
+
+ % Paper 2
+
+q(Ans,89,Time) :- solve(cos(x) + cos(3*x) = 0,x,Ans,Time).  %solved
+
+q(Ans,90,Time) :- solve(sin(x) + 3^(1/2)*cos(x) = 1,x,Ans,Time). 	%solved
+
+ % June 1981
+
+ % Paper 2
+
+q(Ans,91,Time) :- solve(2*cos(2*x) + sin(2*x) = 5^(1/2)/2,x,Ans,Time).  %solved
+
+ % Jan 1982 Paper 2
+
+q(Ans,92,Time) :- solve(sin(x) + sin(3*x) = 0,x,Ans,Time). % solved
+
+q(Ans,93,Time) :- solve(2*sin(x) - 3*cos(x) = 1,x,Ans,Time). % solved
+
+ % June 1982 Paper 2
+
+q(Ans,94,Time) :- solve(cos(60 + x) + 2*sin(30 + x) = 0,x,Ans,Time). %solved
+
+q(Ans,95,Time) :- solve(5*cos(x)^2 - 12*sin(x)*cos(x) = 2,x,Ans,Time). % solved
+
+ % June 1983 Paper 2
+
+q(Ans,96,Time) :-  solve(sin(3*x) = -1/2,x,Ans,Time). % Solved, but answer required in radians
+
+q(Ans,97,Time) :- solve(2*cos(x) - sin(x) = 1,x,Ans,Time).  % solved
+
+
+ % Special Paper
+
+q(Ans,98,Time) :- solve(sin(4*x)^2 -sin(3*x)^2 = sin(x)^2,x,Ans,Time).
+ % First show that sin(4*x)^2 - sin(3*x)^2 = sin(7*x)*sin(x,x,Ans,Time).  Question has
+ % a misprint, claiming that the RHS is 7*x*sin(x)!
+
+
+	 % Scottish Higher Mathematics 
+ % 1977 Paper2 
+
+q(Ans,99,Time) :- solve(10*cos(x)^2 + sin(x) - 7 = 0,x,Ans,Time).  %solved
+
+ % 1978 Paper2 
+
+q(Ans,100,Time) :- solve(sin(5*x) + sin(x) = 3*cos(2*x),x,Ans,Time).	%solved
+
+ % 1979 Paper2 
+
+q(Ans,101,Time) :- solve(2*cos(2*x) + cos(x) - 1 = 0,x,Ans,Time).	%solved
+
+ % 1981 Paper2 
+
+q(Ans,102,Time) :- solve(sin(5*x/2) - sin(3*x/2) = 0,x,Ans,Time).	%solved
+
+q(Ans,103,Time) :- solve(9*6^(2*x) - 10*6^x + 1 = 0,x,Ans,Time).	%solved
+
+ % 1982 Paper2 
+
+q(Ans,104,Time) :- solve(sin(3*x) - sin(x) = 1/2*cos(2*x),x,Ans,Time).
+
+
+ :- compile('lpexam.run').
+
+/* Known initial failures 17, 20, 22, 28, 68, 73, 84, 86, 94, 100, 104*/
+
+
+

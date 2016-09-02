@@ -1,0 +1,10 @@
+:- dynamic user_rule/7.
+
+ 
+:- flag(rules,_,yes).
+user_rule(s, A, cos(B) + cos(C) => 2 * cos((1/2) * (B + C)) * cos((1/2) * (-1 * B + C)), [], D, D, []).
+
+user_rule(w, A, sin(B) + sin(C) => 2 * sin((1/2) * (B + C)) * cos((1/2) * (-1 * B + C)), [], D, D, []).
+
+user_rule(o, A, cos(B) + sin(B) = 0 => tan(B) = -1, [], C, D, [eval(C > D)]).
+
